@@ -48,6 +48,14 @@ table {
 
 
 
+/* font */
+@font-face {
+    font-family: Jost; 
+    src: url('../fonts/Jost.ttf')
+}
+/* font */
+
+
 
 /* all */
 .window{
@@ -114,6 +122,7 @@ table {
 /* navigation list */ 
 
 
+
 /* workspace */
 .workspace{
     margin: 20px 0 0 538px;
@@ -133,6 +142,7 @@ table {
     width: 300px;
     height: 130px;
 }
+
 .github{
     position: absolute;
     margin-left: 60px;
