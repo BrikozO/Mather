@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nill Kiggers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' )  }}">
+</head>
+<body>
+     <section class="window">
+        <div class="inputspace">
+            <a href="/home" class="main-button">Nill Kiggers inc.</a>
+            <div class="button-con">
+                <a class="navigation" href="/home/calculator">Calculator</a>
+                <a class="navigation" href="/home/2dgraf">2D Grafs</a>
+                <a class="navigation" href="/home/3dfigures">3D Figures</a>
+                <a class="navigation" href="/home/inprogress1">In progress...</a>
+                <a class="navigation" href="/home/inprogress2">In progress...</a>
+                <a class="navigation" href="/home/inprogress3">In progress...</a>
+            </div>
+        </div>
+
+        <div class="workspace">
+            {% block workspace %}{% endblock %}
+        </div>
+
+        <div class="links">
+            <a href="https://discord.gg/vmzGtc69pB" class="discord"><img src="../static/icons/discord.svg" alt="discord"></a>
+            <a href="https://github.com/BrikozO/NillKiggers" class="github"><img src="../static/icons/github.svg" alt="github"></a>
+        </div>
+     </section>
+</body>
+</html>
+
+
+
+
+
