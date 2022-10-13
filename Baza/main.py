@@ -11,7 +11,7 @@ def index():
 
 @main.route('/home/calculator')
 def calculator():
-    return render_template("calculator.html")
+    return render_template("calculator.html", title = "Calc")
 
 
 @main.route('/home/2dgraf')
