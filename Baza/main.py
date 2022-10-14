@@ -7,7 +7,7 @@ main = Flask(__name__, template_folder='template')
 #ссылки  на разные разделы
 @main.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("first.html")
 
 @main.route('/calculator')
 def calculator():
