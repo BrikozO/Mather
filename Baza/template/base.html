@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nill Kiggers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' )  }}">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="conteiner">
+        <a href="/" class="main_button">
+          <span class="home">Nill Kiggers</span>
+        </a>
+        <div class="con-button">
+          <a class="button" href="/calculator">Calculator</a>
+          <a class="button" href="/2dgraf">2Dgraf</a>
+          <a class="button" href="/3dfigures">3Dfigures</a>
+          <a class="button" href="/inprogress1">inprogress1</a>
+          <a class="button" href="/inprogress2">inprogress2</a>
+          <a class="button" href="/inprogress3">inprogress3</a>
+        </div>
+    </div>
+  </header>
+
+  <div class="conteiner">
+    <section class="workspace">
+      {% block workspace %}{% endblock %}
+    </section>
+  
+    <footer class="footer">
+      <span class="nklinks">Nill Kiggers links</span>
+      <div class="links">
+        <a href="https://discord.gg/vmzGtc69pB" class="discord"><img src="../static/icons/discord.svg" alt="discord"></a>
+        <a href="https://github.com/BrikozO/NillKiggers" class="github"><img src="../static/icons/github.svg" alt="github"></a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+
+
+
+
+

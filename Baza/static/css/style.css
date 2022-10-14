@@ -1,5 +1,4 @@
-/*reset*/
-
+/* reset */
 
 
 html, body, div, span, applet, object, iframe,
@@ -47,6 +46,8 @@ table {
 }
 
 
+/* reset */
+
 
 /* font */
 @font-face {
@@ -56,99 +57,107 @@ table {
 /* font */
 
 
-
-/* all */
-.window{
-    min-width: 1440px;
-    height: 1024px;
-    background: #FFFFFF;
+/* main */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+	background: #191724;
 }
 
-/* all */
-
-
-
-/* navigation list */
-.inputspace{
-position: absolute;
-    width: 380px;
-    min-height: 740px;
-    left: 0px;
-    top: 0px;
-    background: #191724;
+.conteiner{
+	font-family: 'Jost';
+    width: 1140px;
+    margin: 0 auto;
+    position: relative;
 }
 
-.main-button{
-    width: 370px;
-    height: 85px;
-    padding: 20px 15px 0 15px;
-    font-family: 'Jost';
+/* main */
+
+
+/* header */
+.home{
+	width: 310px;
+	position: absolute;
     font-weight: 400;
-    font-size: 50px;
-    line-height: 92px;
-    text-decoration: none;
+    font-size: 64px;
+    line-height: 70px;
     color: #FFFFFF;
 }
 
-.button-con{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 600px;
-    margin: 20px 0 100px 0;
+.header{
+	background: #191724;
+	height: 70px;
 }
 
-.navigation{
+.main_button{
+	text-decoration: none;
+}
+
+.con-button{
+	display: flex;
+	justify-content: end;
+	height: 70px;
+	margin-left: 400px;
+	overflow: hidden;
+}
+
+.button{
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px 15px;
     text-decoration: none;
-    padding: 14px 0 14px 93px;
-    font-family: 'Jost';
-    font-weight: 100;
-    font-size: 36px;
-    line-height: 52px;
-    color: #FFFFFF;
-    border: 0;
-    height: 80px;
-    background: #191724;
+    font-size: 20px;
+	border-radius: 20px;
 }
 
-.navigation:hover{
+.button:hover{
     background: #1A1533;
     color: #FFFFFF;
 }
 
-.navigation:active{
+.button:active{
     background: #47389A;
     color: #FFFFFF;
 }
-/* navigation list */ 
-
+/* header */
 
 
 /* workspace */
 .workspace{
-    position: relative;
-    margin: 20px 40px 20px 410px;
-    min-width: 980px;
-    min-height:580px;
-    background: #D9D9D9;
+	margin-top: 50px;
+	height: 800px;
+	background: #D9D9D9;
     border-radius: 20px;
 }
+
 /* workspace */
 
 
 
-/* links */
+/* footer */
+.footer{
+	height: 130px;
+	margin-top: 30px;
+}
+
+.nklinks{
+
+	color: white;
+	font-weight: 400;
+    font-size: 64px;
+    line-height: 120px;
+}
 .links{
-    margin-bottom: 20px;
-    margin-right: 40px;
-    float: right;
+	width: 300px;
+	float: right;
     position: relative;
-    width: 300px;
-    height: 120px;
 }
 
 .github{
-    position: absolute;
-    margin-left: 60px;
+	position: absolute;
+	margin-left: 60px;
 }
-/* links */
+
+
+/* footer */
