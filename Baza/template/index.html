@@ -12,28 +12,36 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' )  }}">
 </head>
 <body>
-     <section class="window">
-        <div class="inputspace">
-            <a href="/home" class="main-button">Nill Kiggers inc.</a>
-            <div class="button-con">
-                <a class="navigation" href="/home/calculator">Calculator</a>
-                <a class="navigation" href="/home/2dgraf">2D Grafs</a>
-                <a class="navigation" href="/home/3dfigures">3D Figures</a>
-                <a class="navigation" href="/home/inprogress1">In progress...</a>
-                <a class="navigation" href="/home/inprogress2">In progress...</a>
-                <a class="navigation" href="/home/inprogress3">In progress...</a>
-            </div>
+  <header>
+    <div class="header">
+      <div class="conteiner">
+        <a href="/" class="main_button">
+          <span class="home">Nill Kiggers</span>
+        </a>
+        <div class="con-button">
+          <a class="button" href="/calculator">Calculator</a>
+          <a class="button" href="/2dgraf">2Dgraf</a>
+          <a class="button" href="/3dfigures">3Dfigures</a>
+          <a class="button" href="/inprogress1">inprogress1</a>
+          <a class="button" href="/inprogress2">inprogress2</a>
+          <a class="button" href="/inprogress3">inprogress3</a>
         </div>
+    </div>
+  </header>
 
-        <div class="workspace">
-            {% block workspace %}{% endblock %}
-        </div>
-
-        <div class="links">
-            <a href="https://discord.gg/vmzGtc69pB" class="discord"><img src="../static/icons/discord.svg" alt="discord"></a>
-            <a href="https://github.com/BrikozO/NillKiggers" class="github"><img src="../static/icons/github.svg" alt="github"></a>
-        </div>
-     </section>
+  <div class="conteiner">
+    <section class="workspace">
+      {% block workspace %}{% endblock %}
+    </section>
+  
+    <footer class="footer">
+      <span class="nklinks">Nill Kiggers links</span>
+      <div class="links">
+        <a href="https://discord.gg/vmzGtc69pB" class="discord"><img src="../static/icons/discord.svg" alt="discord"></a>
+        <a href="https://github.com/BrikozO/NillKiggers" class="github"><img src="../static/icons/github.svg" alt="github"></a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
 

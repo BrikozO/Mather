@@ -5,36 +5,36 @@ main = Flask(__name__, template_folder='template')
 
 
 #ссылки  на разные разделы
-@main.route('/home')
+@main.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("first.html")
 
-@main.route('/home/calculator')
+@main.route('/calculator')
 def calculator():
     return render_template("calculator.html", title = "Calc")
 
 
-@main.route('/home/2dgraf')
+@main.route('/2dgraf')
 def graf():
     return render_template("2dgraf.html")
 
 
-@main.route('/home/3dfigures')
+@main.route('/3dfigures')
 def figures():
     return render_template("3dfigures.html")
 
 
-@main.route('/home/inprogress1')
+@main.route('/inprogress1')
 def inprogress1():
     return render_template("inprogress1.html")
 
 
-@main.route('/home/inprogress2')
+@main.route('/inprogress2')
 def inprogress2():
     return render_template("inprogress2.html")
 
 
-@main.route('/home/inprogress3')
+@main.route('/inprogress3')
 def inprogress3():
     return render_template("inprogress3.html")
 
