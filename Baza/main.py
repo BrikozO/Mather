@@ -1,7 +1,6 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template
 
-main = Flask(__name__, template_folder='template')
-
+main = Flask(__name__, template_folder="template")
 
 
 #ссылки  на разные разделы
@@ -16,12 +15,12 @@ def calculator():
 
 @main.route('/2dgraf')
 def graf():
-    return render_template("2dgraf.html")
+    return render_template("2dgraf.html", title = "Grafs")
 
 
 @main.route('/3dfigures')
 def figures():
-    return render_template("3dfigures.html")
+    return render_template("3dfigures.html", title = "Fig")
 
 
 @main.route('/inprogress1')
