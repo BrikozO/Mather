@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for
 
 
-main = Flask(__name__, template_folder='template')
+main = Flask(__name__, template_folder="template")
 
 
 
