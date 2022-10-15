@@ -43,7 +43,7 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
+} 
 
 
 /* reset */
@@ -70,6 +70,18 @@ table {
     width: 1140px;
     margin: 0 auto;
     position: relative;
+}
+
+.workspace{
+	margin-top: 50px;
+	position: relative;
+	height: 800px;
+	background: #D9D9D9;
+    border-radius: 20px;
+}
+ 
+.input-window{
+	margin: 0 20px 20px 20px;
 }
 
 /* main */
@@ -123,15 +135,80 @@ table {
 /* header */
 
 
-/* workspace */
-.workspace{
-	margin-top: 50px;
-	height: 800px;
+/* workspace first */
+.first-buttons{
+	display: flex;
+	padding: 20px 0;
+	height: 400px;
 	background: #D9D9D9;
-    border-radius: 20px;
+	justify-content: space-between;
 }
 
-/* workspace */
+.second-button{
+	display: flex;
+	background: #D9D9D9;
+	padding-bottom: 40px;
+	height: 400px;
+	justify-content: space-between;
+}
+
+.item{
+	width: 320px;
+	text-align: center;
+	background: #D9D9D9;
+
+}
+
+.item-header{
+	padding-top: 40px;
+	font-weight: 400;
+    font-size: 64px;
+    line-height: 70px;
+	background: #D9D9D9;
+	color: #191724;
+}
+
+.item-text{
+	height: 120px;
+	margin-top: 40px;
+	font-weight: 100;
+	font-size: 20px;
+	background: #D9D9D9;
+}
+
+.item-button{
+	display: block;
+	padding: 15px 0;
+	font-weight: 400;
+    font-size: 45px;
+    line-height: 50px;
+	text-decoration: none;
+	background: #D9D9D9;
+	color: #191724;
+	border-radius: 20px;
+}
+
+.item-button:hover{
+	background: #1A1533;
+    color: #FFFFFF;
+}
+
+.item-button:active{
+	background: #47389A;
+    color: #FFFFFF;
+}
+/* workspace first*/
+
+
+
+/* workspace calculator */
+
+/* workspace calculator */
+
+
+/* workspce 2dgraf */
+
+/* workspce 2dgraf */
 
 
 

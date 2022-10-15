@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 
+
 main = Flask(__name__, template_folder='template')
 
 
@@ -8,6 +9,7 @@ main = Flask(__name__, template_folder='template')
 @main.route('/')
 def index():
     return render_template("first.html")
+
 
 @main.route('/calculator')
 def calculator():
