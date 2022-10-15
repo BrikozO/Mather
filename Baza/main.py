@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for
 
+
 main = Flask(__name__, template_folder="template")
+
 
 
 #ссылки  на разные разделы
@@ -8,19 +10,20 @@ main = Flask(__name__, template_folder="template")
 def index():
     return render_template("first.html")
 
+
 @main.route('/calculator')
 def calculator():
-    return render_template("calculator.html", title = "Calc")
+    return render_template("calculator.html")
 
 
 @main.route('/2dgraf')
 def graf():
-    return render_template("2dgraf.html", title = "Grafs")
+    return render_template("2dgraf.html")
 
 
 @main.route('/3dfigures')
 def figures():
-    return render_template("3dfigures.html", title = "Fig")
+    return render_template("3dfigures.html")
 
 
 @main.route('/inprogress1')
