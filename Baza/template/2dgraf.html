@@ -5,7 +5,18 @@
 {% block workspace %}
 <section class="workspace">
     <div class="input-window">
-
+        {% for msg in get_flashed_messages() %}
+        <div class="flash">{{msg}}</div>
+        {% endfor %}
+        <form method="post" class="graf_form">
+            <lable for="func" class="graf_lab">f(x)=</lable>
+            <input name="func" id="func" class="graf_input" required>
+            <input type="submit" value="enter" class="graf_enter">
+            <label for="x_from" class="graf_lab_2">x from</label>
+            <input name="xfrom" id="xfrom" class="x_input" required>
+            <label for="x_to" class="graf_lab_3">to</label>
+            <input name="xto" id="xto" class="x_input" required>
+        </form>
     </div>
 </section>
 {% endblock %}
