@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for
 
 main = Flask(__name__, template_folder="template")
 
-
+main.secret_key = "dev"
 
 #ссылки  на разные разделы
 @main.route('/')
@@ -16,9 +16,8 @@ def calculator():
     return render_template("calculator.html")
 
 
-@main.route('/2dgraf')
-def graf():
-    return render_template("2dgraf.html")
+import functional.graf as graf
+main.register_blueprint(graf.bp)
 
 
 @main.route('/3dfigures')
