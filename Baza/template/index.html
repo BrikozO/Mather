@@ -10,8 +10,14 @@
     <title>Nill Kiggers</title>
     {% endif %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' )  }}">
+    <script type="text/javascript"
+        src="../static/script/brython.js">
+    </script>
+    <script type="text/javascript"
+        src="../static/script/brython_stdlib.js">
+    </script>
 </head>
-<body>
+<body onload="brython(1)">
   <header>
     <div class="header">
       <div class="conteiner">
@@ -42,6 +48,9 @@
       </div>
     </footer>
   </div>
+
+  
+
 </body>
 </html>
 
