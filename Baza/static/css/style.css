@@ -58,10 +58,14 @@ table {
 
 
 /* main */
-*{
+*,*:before,*:after{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+	border: 0;
+}
+
+html,body {
 	background: #191724;
 }
 
@@ -76,11 +80,12 @@ table {
 	margin-top: 50px;
 	position: relative;
 	min-height: 800px;
-	background: #D9D9D9;
+	background: #858585;
     border-radius: 20px;
 }
  
 .input-window{
+	background: #858585;
 	margin: 0 20px 20px 20px;
 }
 
@@ -145,6 +150,7 @@ table {
 	padding: 20px 0;
 	height: 400px;
 	justify-content: space-between;
+	background: #191724;
 
 }
 
@@ -153,6 +159,7 @@ table {
 	padding:20px 0 20px 0;
 	height: 400px;
 	justify-content: space-between;
+	background: #191724;
 }
 
 .item{
@@ -207,9 +214,130 @@ table {
 /* workspace calculator */
 
 
+
 /* workspce 2dgraf */
 
 /* workspce 2dgraf */
+
+
+/* workspce 3dfigures */
+.wrapper {
+	min-height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.content {
+	margin-top: 50px;
+	height: 800px;
+	max-width: 1140px;
+	margin: 0px auto;
+}
+
+.tabs {
+	margin: 50px 0px 50px 0px;
+}
+.tabs__items {
+	display: flex;
+}
+.tabs__item {
+	position: relative;
+	flex: 0 1 25%;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+}
+
+.tabs__item span {
+	position: relative;
+	z-index: 2;
+}
+
+
+.tabs__block {
+	position: relative;
+	padding: 20px;
+	height: 750px;
+	font-size: 18px;
+	line-height: 24px;
+	display: none;
+}
+.tabs__block:before {
+	content: "";
+	height: 50px;
+	width: 25%;
+	position: absolute;
+	top: -50px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+
+.tabs__block:nth-child(1) {
+	background-color: #858585;
+	border-radius: 10px;
+	border-top-left-radius: 0;
+}
+.tabs__block:nth-child(1):before {
+	background-color: #858585;
+	left: 0;
+}
+.tabs__block:nth-child(2) {
+	background-color: #858585;
+	border-radius: 10px;
+}
+.tabs__block:nth-child(2):before {
+	background-color: #858585;
+	left: 25%;
+}
+.tabs__block:nth-child(3) {
+	background-color: #858585;
+	border-radius: 10px;
+}
+.tabs__block:nth-child(3):before {
+	background-color: #858585;
+	left: 50%;
+}
+.tabs__block:nth-child(4) {
+	background-color: #858585;
+	border-radius: 10px;
+	border-top-right-radius: 0;
+}
+.tabs__block:nth-child(4):before {
+	background-color: #858585;
+	right: 0;
+}
+
+.tabs__block:target {
+	display: block;
+}
+
+.text {
+	font-size: 18px;
+	line-height: 24px;
+}
+
+.foto{
+	width: 640px;
+	height: 480px;
+}
+.input-text{
+	font-size: 30px;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+.submit{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+/* workspce 3dfigures */
 
 
 

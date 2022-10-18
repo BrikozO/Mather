@@ -3,9 +3,47 @@
 
 
 {% block workspace %}
-<section class="workspace">
-    <div class="input-window">
-
+<div class="wrapper">
+    <div class="content">
+        <div class="tabs">
+            <nav class="tabs__items">
+                <a href="#tab_01" class="tabs__item"><span>Cube</span></a>
+                <a href="#tab_02" class="tabs__item"><span>Ball</span></a>
+                <a href="#tab_03" class="tabs__item"><span>Pyramid</span></a>
+                <a href="#tab_04" class="tabs__item"><span>Cylinder</span></a>
+            </nav>
+            <div class="tabs__body">
+                <div id="tab_01" class="tabs__block">
+                    <form action = "" method = "post">
+                        <img class="foto" src="data:image/webp;base64, {{ plot_url }}" alt="Fig" onerror="this.style.display='none'"><br>
+                        <input type="text" name="sizes" class="input-text" id="int"><br>
+                        <input class="submit" type = "submit">
+                    </form>
+                </div>
+                <div id="tab_02" class="tabs__block">
+                    <form action = "" method = "post">
+                        <img class="foto" src="data:image/webp;base64, {{ plot_url }}" alt="Fig" onerror="this.style.display='none'"><br>
+                        <input type="text" name="sizes" class="input-text" id="int"><br>
+                        <input class="submit" type = "submit">
+                    </form>
+                </div>
+                <div id="tab_03" class="tabs__block">
+                    <form action = "" method = "post">
+                        <img class="foto" src="data:image/webp;base64, {{ plot_url }}" alt="Fig" onerror="this.style.display='none'"><br>
+                        <input type="text" name="sizes" class="input-text" id="int"><br>
+                        <input class="submit" type = "submit">
+                    </form>
+                </div>
+                <div id="tab_04" class="tabs__block">
+                    <form action = "" method = "post">
+                        <img class="foto" src="data:image/webp;base64, {{ plot_url }}" alt="Fig" onerror="this.style.display='none'"><br>
+                        <input type="text" name="sizes" class="input-text" id="int"><br>
+                        <input type="text" name="sizes" class="input-text" id="int"><br>
+                        <input class="submit" type = "submit">
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
+</div>
 {% endblock %}
