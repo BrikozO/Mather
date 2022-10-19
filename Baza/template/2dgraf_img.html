@@ -5,9 +5,9 @@
 {% block workspace %}
 <section class="workspace">
     <div class="input-window">
-
+        <p class="graf_img_p"><img class="graf_img" src="../static/img/2dgraf.png" height="400" width="600"></p>
         {% for msg in get_flashed_messages() %}
-        <div class="flash">{{msg}}</div>
+        <div class="flash_p"><lable class="flash">{{msg}}</lable></div>
         {% endfor %}
         <form method="post" class="graf_form">
             <lable for="func" class="graf_lab">f(x)=</lable>

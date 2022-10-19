@@ -216,7 +216,70 @@ html,body {
 
 
 /* workspce 2dgraf */
+.graf_form{
+	background: #858585;
+}
 
+.graf_img{
+left: 250px;
+	background: #858585;
+	color: #858585;
+}
+
+.graf_img_p{
+	background: #858585;
+	color: #858585;
+}
+
+.graf_lab{
+	margin-left: 400px;
+	color: #191724;
+	background: #858585;
+}
+
+.graf_lab_2{
+	margin-left: 450px;
+	color: #191724;
+	background: #858585;
+}
+
+.graf_lab_3{
+	margin-left: 50px;
+	color: #191724;
+	background: #858585;
+}
+
+.graf_input{
+	color: #191724;
+	background: #f2f2f2;
+}
+
+.x_input{
+	color: #191724;
+	background: #f2f2f2;
+	width: 40px;
+}
+
+.graf_enter{
+	color: #191724;
+	background: #f2f2f2;
+}
+
+.pizdec{
+	color: #191724;
+	background: #f2f2f2;
+}
+
+.flash{
+	margin-left: 350px;
+	color: #191724;
+	background: #858585;
+}
+
+.flash_p{
+	color: #191724;
+	background: #858585;
+}
 /* workspce 2dgraf */
 
 
