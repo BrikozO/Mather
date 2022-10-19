@@ -45,7 +45,7 @@ def ball(a):
     return plot_url
 
 
-def pyramid(a):
+def pyramid(a, b):
 
     img = BytesIO()
     fig = plt.figure()
@@ -55,7 +55,7 @@ def pyramid(a):
                   [1*(a/2), -1*(a/2), -1*(a/2)],
                   [1*(a/2), 1*(a/2), -1*(a/2)],
                   [-1*(a/2), 1*(a/2), -1*(a/2)],
-                  [0, 0, 1 * a]])
+                  [0, 0, 1 * b]])
     ax.scatter3D(v[:, 0], v[:, 1], v[:, 2])
 
     verts = [[v[0], v[1], v[4]], [v[0], v[3], v[4]],
