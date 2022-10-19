@@ -3,6 +3,7 @@ from flask import (Blueprint, render_template, request, redirect, url_for, flash
 from sympy import Symbol, simplify
 from numpy import arange
 
+
 def create_graf(func, x_from, x_to):
     import matplotlib
     matplotlib.use('Agg')
@@ -14,14 +15,14 @@ def create_graf(func, x_from, x_to):
     plt.plot(X, Y)
     plt.xlabel('x')
     plt.ylabel('f(x)')
-    plt.savefig("Baza/static/img/2dgraf.png")
+    plt.savefig("static/img/2dgraf.png")
     plt.close()
 
 
 bp = Blueprint("2dgraf", __name__, url_prefix="/2dgraf")
 
 
-@bp.route("/function"  , methods = ("POST", "GET"))
+@bp.route("/function", methods = ("POST", "GET"))
 def graf():
     if request.method == "POST":
         func = request.form["func"]
@@ -60,6 +61,7 @@ def show_graf():
 
     return render_template("2dgraf_img.html")
 
+
 if __name__ == "__main__":
-    f = 'sin(x)*tan(x) - x4'
+    f = 'sin(x)'
     create_graf(f, -5, 5)
