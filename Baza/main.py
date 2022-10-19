@@ -24,6 +24,7 @@ main.register_blueprint(graf.bp)
 def figures():
     if request.method == "POST":
         cylinder = ["", ""]
+        pyramid = ["", ""]
         cubes = request.form.get("sizes1")
         try:
             plot_url = fig.cube(int(cubes))
@@ -36,9 +37,10 @@ def figures():
             return render_template("3dfigures.html", plot_url=plot_url)
         except:
             print("error")
-        pyramids = request.form.get("sizes3")
+        pyramid[0] = request.form.get("sizes31")
+        pyramid[1] = request.form.get("sizes32")
         try:
-            plot_url = fig.pyramid(int(pyramids))
+            plot_url = fig.pyramid(int(pyramid[0]), int(pyramid[1]))
             return render_template("3dfigures.html", plot_url=plot_url)
         except:
             print("error")
