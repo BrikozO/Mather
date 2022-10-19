@@ -1,5 +1,6 @@
-from flask import Flask, render_template, url_for
-
+from flask import Flask, render_template, url_for, request
+import functional.Figures as fig
+import functional.graf as graf
 
 main = Flask(__name__, template_folder="template")
 
@@ -16,14 +17,40 @@ def calculator():
     return render_template("calculator.html")
 
 
-import functional.graf as graf
 main.register_blueprint(graf.bp)
 
 
-@main.route('/3dfigures')
+@main.route('/3dfigures', methods = ("GET", "POST"))
 def figures():
-    return render_template("3dfigures.html")
+    if request.method == "POST":
+        cylinder = ["", ""]
+        cubes = request.form.get("sizes1")
+        try:
+            plot_url = fig.cube(int(cubes))
+            return render_template("3dfigures.html", plot_url=plot_url)
+        except:
+            print("error")
+        balls = request.form.get("sizes2")
+        try:
+            plot_url = fig.ball(int(balls))
+            return render_template("3dfigures.html", plot_url=plot_url)
+        except:
+            print("error")
+        pyramids = request.form.get("sizes3")
+        try:
+            plot_url = fig.pyramid(int(pyramids))
+            return render_template("3dfigures.html", plot_url=plot_url)
+        except:
+            print("error")
+        cylinder[0] = request.form.get("sizes41")
+        cylinder[1] = request.form.get("sizes42")
+        try:
+            plot_url = fig.cylinder(int(cylinder[0]), int(cylinder[1]))
+            return render_template("3dfigures.html", plot_url=plot_url)
+        except:
+            print("error")
 
+    return render_template("3dfigures.html")
 
 @main.route('/inprogress1')
 def inprogress1():
