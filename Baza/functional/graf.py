@@ -18,7 +18,7 @@ def create_graf(func, x_from, x_to):
     try:
         plt.savefig("static/img/2dgraf.png")
     except:
-        plt.savefig("../static/img/2dgraf.png")
+        plt.savefig("Baza/static/img/2dgraf.png")
     plt.close()
 
 
