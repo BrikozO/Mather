@@ -86,7 +86,9 @@ html,body {
  
 .input-window{
 	background: #858585;
-	margin: 0 20px 20px 20px;
+	margin: 30px;
+	margin-top: 0;
+	padding-top: 30px;
 }
 
 /* main */
@@ -216,69 +218,46 @@ html,body {
 
 
 /* workspce 2dgraf */
+.input-text2d{
+	font-size: 30px;
+	width: 580px;
+	margin-top: 10px;
+	border-radius: 10px;
+	background-color: #D9D9D9;
+}
+
 .graf_form{
+	padding: 15px 0;
 	background: #858585;
 }
 
 .graf_img{
-left: 250px;
+	border-radius: 10px;
 	background: #858585;
 	color: #858585;
 }
 
-.graf_img_p{
-	background: #858585;
-	color: #858585;
-}
 
 .graf_lab{
-	margin-left: 400px;
-	color: #191724;
-	background: #858585;
+	font-size: 30px;
+	width: 50px;
+	display: inline-block;
+	margin-right: 10px;
 }
 
-.graf_lab_2{
-	margin-left: 450px;
-	color: #191724;
-	background: #858585;
+.information{
+	background: #D9D9D9;
+	position: absolute;
+	width: 340px;
+	height: 630px;
+	left: 740px;
+	top: 30px;
+	border-radius: 10px;
 }
 
-.graf_lab_3{
-	margin-left: 50px;
-	color: #191724;
-	background: #858585;
-}
-
-.graf_input{
-	color: #191724;
-	background: #f2f2f2;
-}
-
-.x_input{
-	color: #191724;
-	background: #f2f2f2;
-	width: 40px;
-}
-
-.graf_enter{
-	color: #191724;
-	background: #f2f2f2;
-}
-
-.pizdec{
-	color: #191724;
-	background: #f2f2f2;
-}
-
-.flash{
-	margin-left: 350px;
-	color: #191724;
-	background: #858585;
-}
-
-.flash_p{
-	color: #191724;
-	background: #858585;
+#flash_err{
+	font-size: 30px;
+	width: 640px;
 }
 /* workspce 2dgraf */
 
@@ -390,15 +369,22 @@ left: 250px;
 }
 .input-text{
 	font-size: 30px;
+	width: 580px;
 	margin-top: 10px;
 	border-radius: 10px;
 }
+
 .submit{
 	display: inline-block;
-	width: 100px;
-	height: 30px;
-	margin-top: 10px;
+	width: 290px;
+	height: 55px;
+	margin-top: 55px;
 	border-radius: 10px;
+	background: #2B30A9;
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 44px;
+	color: #FFFFFF;
 }
 /* workspce 3dfigures */
 
