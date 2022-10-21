@@ -35,7 +35,7 @@ def graf():
         try:
             create_graf(func, int(x_from), int(x_to))
         except:
-            error = "ты что-то не правильно ввёл, проверь пожалуйста, а то сервер упадёт"
+            error = "Calculation error"
         else:
             return redirect(url_for("2dgraf.show_graf"))
 
@@ -55,7 +55,7 @@ def show_graf():
         try:
             create_graf(func, int(x_from), int(x_to))
         except:
-            error = "ты что-то не правильно ввёл, проверь пожалуйста, а то сервер упадёт"
+            error = "Calculation error"
         else:
             return render_template("2dgraf_img.html")
 
