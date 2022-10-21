@@ -5,6 +5,7 @@
 {% block workspace %}
 <section class="workspace">
     <div class="input-window">
+        <div class="graf-bg"><div class="graf-img-bg"></div></div>
         {% for msg in get_flashed_messages() %}
         <div id="flash_err"><p>{{msg}}</p></div>
         {% endfor %}
@@ -16,7 +17,7 @@
                 <input name="xfrom" id="xfrom" class="input-text2d" required><br>
                 <label for="xto" class="graf_lab">to</label>
                 <input name="xto" id="xto" class="input-text2d" required><br>
-                <input type="submit" class="submit">
+                <input type="submit" value="Submit" class="submit">
             </form>
         </div>
         <div class="information">
