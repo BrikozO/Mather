@@ -5,7 +5,29 @@
 {% block workspace %}
 <section class="workspace">
     <div class="input-window">
+        {% for msg in get_flashed_messages() %}
+        <div id="flash_err"><p>{{msg}}</p></div>
+        {% endfor %}
+        <div class="graf_form">
+        <form action="#" method="POST">
+            <p class="resultsy">{{abc}}</p>
+            <lable for="fun" class="graf_lab">f(x)=</lable>
+            <input type="text" name="fun" class="inputsy2"><br>
 
+            <lable for="lto" class="lab2">Limit to:</lable>
+            <input type="text" name="lto" class="inputsy1"><br>
+            <br>
+
+            <lable for="symp" class="lab3">Choose the Sympanent:</lable>
+                <select type="text" class="selectsy" name="symp">
+                    <option value="Int">Integral</option>
+                    <option value="Dif">Differential</option>
+                    <option value="Lim">Limit</option>
+                </select><br>
+        <input type="submit" class="submit" value="submit">
+
+        </form>
+            </div>
     </div>
 </section>
 {% endblock %}
