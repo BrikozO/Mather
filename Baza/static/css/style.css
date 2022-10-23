@@ -222,7 +222,7 @@ html,body {
     padding: 25px;
     text-align: right;
 	font-family: 'Jost';
-	font-size: 3.1em
+	font-size: 59px;
 }
 td{
 	padding: 17px 66px 17px 66px;
@@ -230,7 +230,7 @@ td{
 	border-color: #fff;
 	border-style: solid;
 	font-family: 'Jost';
-	font-size: 3.8em;
+	font-size: 59px;
 	text-align: center
 }
 #equal{
@@ -285,8 +285,8 @@ td{
 	border-bottom-left-radius: 10px;
 }
 .frame{
-	width: 779px;
-	height: 600px;
+	width: 785px;
+	height: 602px;
 	margin: 60px 150px;
 	background: #fff
 }
