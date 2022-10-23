@@ -3,6 +3,7 @@
             <meta charset="utf-8">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.10.7/brython.min.js" integrity="sha512-ookVEvV0boFsZvDs/AKA1wuld0wbqV/rFS6UBrZRJs74s/t68YR6KQNLdKWCfazNthj4g5MPmKOAQJqu8TgP7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+            <style>body {background-color:#ffffff}</style>
         </head>
 
         <body onload="brython()">
@@ -15,7 +16,7 @@
                     calc <= html.TR(html.TD('1', id="number") + html.TD('2', id="number") + html.TD('3', id="number") + html.TD('*', id="operation"))
                     calc <= html.TR(html.TD('4', id="number") + html.TD('5', id="number") + html.TD('6', id="number") + html.TD('-', id="operation"))
                     calc <= html.TR(html.TD('7', id="number") + html.TD('8', id="number") + html.TD('9', id="number") + html.TD('+', id="operation"))
-                    calc <= html.TR(html.TD('.', id="operation") + html.TD('0', id="number") + html.TD('1/x', id="operation") + html.TD('=', id="equal"))
+                    calc <= html.TR(html.TD('.', id="dote") + html.TD('0', id="number") + html.TD('1/x', id="operation") + html.TD('=', id="equal"))
                     document <= calc
                     result = document["result"]
 
@@ -23,7 +24,7 @@
                         element = event.target
                         value = element.text
                         if value in '1234567890.+-**^/':
-                            if result.text in ["0", "Error"]:
+                            if result.text in ["0", "Error", "infinity"]:
                                 result.text = value
                             elif value == '^':
                                 result.text = result.text + '**'
@@ -46,7 +47,7 @@
                                 result.text = int(1/(eval(result.text)))
                             else:
                                 result.text = 1/(eval(result.text))
-                        if len(result.text) > 35:
+                        if len(result.text) > 25:
                             result.text = 'Error'
                     for button in document.select("td"):
                         button.bind("click", action)
