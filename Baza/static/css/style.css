@@ -214,7 +214,82 @@ html,body {
 
 
 /* workspace calculator */
-
+#result{
+	background: #e7e7e7;
+    border-color: #D9D9D9;
+    border-style: solid;
+	border-radius: 10px 10px 10px 10px;
+    padding: 25px;
+    text-align: right;
+	font-family: 'Jost';
+	font-size: 3.1em
+}
+td{
+	padding: 17px 66px 17px 66px;
+	border-width: 5px;
+	border-color: #fff;
+	border-style: solid;
+	font-family: 'Jost';
+	font-size: 3.8em;
+	text-align: center
+}
+#equal{
+	background: #2B30A9;
+    text-align: right;
+	border-bottom-right-radius: 10px;
+	color: #FFFFFF
+}
+#equal:hover{
+	background: #3c41e0;
+}
+#equal:active{
+	background: #000;
+}
+#clear{
+	background: #cccccc;
+}
+#clear:hover{
+	background: #dadada;
+}
+#clear:active{
+	background: #fff;
+}
+#number{
+	background: #D9D9D9;
+}
+#number:hover{
+	background: #eaeaea;
+}
+#number:active{
+	background: #fff;
+}
+#operation{
+	background: #b4b4b4;
+}
+#operation:hover{
+	background: #d7d7d7;
+}
+#operation:active{
+	background: #fff;
+}
+#dote{
+	background: #b4b4b4;
+	border-bottom-left-radius: 10px;
+}
+#dote:hover{
+	background: #d7d7d7;
+	border-bottom-left-radius: 10px;
+}
+#dote:active{
+	background: #fff;
+	border-bottom-left-radius: 10px;
+}
+.frame{
+	width: 779px;
+	height: 600px;
+	margin: 60px 150px;
+	background: #fff
+}
 /* workspace calculator */
 
 /* workspace sympanents */
@@ -246,7 +321,6 @@ html,body {
 }
 .selectsy{
 	font-size: 30px;
-	font-weight: 400;
 	width: 60%;
 	margin-top: 10px;
 	border-radius: 10px;
@@ -258,21 +332,6 @@ html,body {
 	margin-top: 10px;
 	border-radius: 10px;
 	background-color: #D9D9D9;
-}
-.infsymp{
-	padding: 10px;
-	margin-top: 30px;
-	height: 150px;
-	background-color: #D9D9D9;
-	border-radius: 10px;
-
-}
-.inf-text{
-	width: 1080px;
-	padding: 0 470px 0 470px;
-	font-size: 30px;
-	font-weight: 400;
-
 }
 /* workspace sympanents */
 
@@ -432,9 +491,8 @@ html,body {
 }
 
 .text {
-	font-size: 20px;
-	line-height: 25px;
-	color: #191724;
+	font-size: 18px;
+	line-height: 24px;
 }
 
 .foto-bg{
