@@ -66,9 +66,9 @@ def inprogress1():
             x = symbols('x')
             if symp == "Int":
                 ab=integrate(fun, x)
-            if symp == "Dif":
+            elif symp == "Dif":
                 ab=diff(fun, x)
-            if symp == "Lim":
+            elif symp == "Lim":
                 ab=limit(fun, x, lim)
         except:
             error = "Calculation error"
