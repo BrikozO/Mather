@@ -1,0 +1,56 @@
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.10.7/brython.min.js" integrity="sha512-ookVEvV0boFsZvDs/AKA1wuld0wbqV/rFS6UBrZRJs74s/t68YR6KQNLdKWCfazNthj4g5MPmKOAQJqu8TgP7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+        </head>
+
+        <body onload="brython()">
+            <div class="calculator">
+                <script type="text/python">
+                    from browser import document, html
+                    calc = html.TABLE()
+                    calc <= html.TR(html.TH(html.DIV("0", id="result"), colspan=4))
+                    calc <= html.TR(html.TD('C', id="clear") + html.TD('CE', id="clear") + html.TD('^', id="operation") + html.TD('/', id="operation"))
+                    calc <= html.TR(html.TD('1', id="number") + html.TD('2', id="number") + html.TD('3', id="number") + html.TD('*', id="operation"))
+                    calc <= html.TR(html.TD('4', id="number") + html.TD('5', id="number") + html.TD('6', id="number") + html.TD('-', id="operation"))
+                    calc <= html.TR(html.TD('7', id="number") + html.TD('8', id="number") + html.TD('9', id="number") + html.TD('+', id="operation"))
+                    calc <= html.TR(html.TD('.', id="operation") + html.TD('0', id="number") + html.TD('1/x', id="operation") + html.TD('=', id="equal"))
+                    document <= calc
+                    result = document["result"]
+
+                    def action(event):
+                        element = event.target
+                        value = element.text
+                        if value in '1234567890.+-**^/':
+                            if result.text in ["0", "Error"]:
+                                result.text = value
+                            elif value == '^':
+                                result.text = result.text + '**'
+                            else:
+                                result.text = result.text + value
+                        elif value == "=":
+                            try:
+                                result.text = eval(result.text)
+                            except:
+                                result.text = "Error"
+                        elif value == "C":
+                            if len(result.text) > 1:
+                                result.text = result.text[:-1]
+                            else:
+                                result.text = 0
+                        elif value == 'CE':
+                            result.text = 0
+                        elif value == '1/x':
+                            if str(1/(eval(result.text)))[-2:] == '.0':
+                                result.text = int(1/(eval(result.text)))
+                            else:
+                                result.text = 1/(eval(result.text))
+                        if len(result.text) > 35:
+                            result.text = 'Error'
+                    for button in document.select("td"):
+                        button.bind("click", action)
+                </script>
+            </div>
+        </body>
+    </html>
