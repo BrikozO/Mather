@@ -15,6 +15,9 @@ def index():
 @main.route('/calculator')
 def calculator():
     return render_template("calculator.html")
+@main.route('/calculator_1.html')
+def calc():
+    return render_template("calculator_1.html")
 
 
 main.register_blueprint(graf.bp)
