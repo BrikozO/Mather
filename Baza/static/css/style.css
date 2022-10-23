@@ -246,6 +246,7 @@ html,body {
 }
 .selectsy{
 	font-size: 30px;
+	font-weight: 400;
 	width: 60%;
 	margin-top: 10px;
 	border-radius: 10px;
@@ -257,6 +258,21 @@ html,body {
 	margin-top: 10px;
 	border-radius: 10px;
 	background-color: #D9D9D9;
+}
+.infsymp{
+	padding: 10px;
+	margin-top: 30px;
+	height: 150px;
+	background-color: #D9D9D9;
+	border-radius: 10px;
+
+}
+.inf-text{
+	width: 1080px;
+	padding: 0 470px 0 470px;
+	font-size: 30px;
+	font-weight: 400;
+
 }
 /* workspace sympanents */
 
@@ -416,8 +432,9 @@ html,body {
 }
 
 .text {
-	font-size: 18px;
-	line-height: 24px;
+	font-size: 20px;
+	line-height: 25px;
+	color: #191724;
 }
 
 .foto-bg{
