@@ -217,7 +217,48 @@ html,body {
 
 /* workspace calculator */
 
-
+/* workspace sympanents */
+.inputsy1{
+	font-size: 30px;
+	width: 850px;
+	margin-top: 10px;
+	border-radius: 10px;
+	background-color: #D9D9D9;
+}
+.inputsy2{
+	font-size: 30px;
+	width: 900px;
+	margin-top: 10px;
+	border-radius: 10px;
+	background-color: #D9D9D9;
+}
+.lab2{
+	font-size: 30px;
+	width: 100px;
+	display: inline-block;
+	margin-right: 10px;
+}
+.lab3{
+	font-size: 30px;
+	width: 28%;
+	display: inline-block;
+	margin-right: 10px;
+}
+.selectsy{
+	font-size: 30px;
+	width: 60%;
+	margin-top: 10px;
+	border-radius: 10px;
+	background-color: #D9D9D9;
+}
+.resultsy{
+	font-size: 50px;
+	width: 965px;
+	margin-top: 10px;
+	border-radius: 10px;
+	background-color: #D9D9D9;
+}
+/* workspace sympanents */
 
 /* workspce 2dgraf */
 .input-text2d{

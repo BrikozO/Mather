@@ -1,7 +1,7 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, flash
 import functional.Figures as fig
 import functional.graf as graf
-
+from sympy import symbols, integrate, diff, limit, simplify
 main = Flask(__name__, template_folder="template")
 
 main.secret_key = "dev"
@@ -54,9 +54,32 @@ def figures():
 
     return render_template("3dfigures.html")
 
-@main.route('/inprogress1')
+@main.route('/sympanents', methods=["POST","GET"])
 def inprogress1():
-    return render_template("inprogress1.html")
+    if request.method=="POST":
+        fun= request.form["fun"]
+        lim = request.form["lto"]
+        symp=request.form["symp"]
+        error = None
+        try:
+            fun=simplify(fun)
+            x = symbols('x')
+            if symp == "Int":
+                ab=integrate(fun, x)
+            if symp == "Dif":
+                ab=diff(fun, x)
+            if symp == "Lim":
+                ab=limit(fun, x, lim)
+        except:
+            error = "Calculation error"
+        else:
+            return render_template("sympanents.html", abc=ab)
+        if error is not None:
+            flash(error)
+            return render_template("sympanents.html")
+    else:
+        return render_template("sympanents.html")
+
 
 
 @main.route('/inprogress2')
