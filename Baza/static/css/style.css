@@ -333,6 +333,20 @@ td{
 	border-radius: 10px;
 	background-color: #D9D9D9;
 }
+.infsymp{
+    padding: 10px;
+    margin-top: 30px;
+    height: 150px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+
+}
+.inf-text{
+	text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+
+}
 /* workspace sympanents */
 
 /* workspce 2dgraf */
@@ -387,6 +401,14 @@ td{
 	left: 740px;
 	top: 30px;
 	border-radius: 10px;
+	padding: 10px;
+}
+
+.iformaton-text{
+	text-align: center;
+	font-size: 30px;
+    font-weight: 400;
+	margin-bottom: 20px;
 }
 
 #flash_err{
@@ -491,8 +513,9 @@ td{
 }
 
 .text {
-	font-size: 18px;
-	line-height: 24px;
+    font-size: 20px;
+    line-height: 25px;
+    color: #191724;
 }
 
 .foto-bg{
