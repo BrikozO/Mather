@@ -2,7 +2,6 @@ from flask import Flask, render_template, url_for, request, flash
 import functional.Figures as fig
 import functional.graf as graf
 from sympy import symbols, integrate, diff, limit, simplify
-from math import factorial
 main = Flask(__name__, template_folder="template")
 
 main.secret_key = "dev"
