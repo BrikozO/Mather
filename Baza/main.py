@@ -95,5 +95,15 @@ def inprogress3():
     return render_template("inprogress3.html")
 
 
+@main.route('/reg')
+def regestration():
+    return render_template("regestration.html")
+
+
+@main.route('/login')
+def logining():
+    return render_template("loginning.html")
+
+
 if __name__ == "__main__":
     main.run(debug=True)
