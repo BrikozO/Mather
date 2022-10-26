@@ -14,7 +14,10 @@
             </nav>
             <div class="tabs__body">
                 <div id="tab_01" class="tabs__block">
-                    <form action = "3dfigures#tab_01" method = "post">
+                    {% for msg in get_flashed_messages() %}
+                    <div id="flash_err"><p>{{msg}}</p></div>
+                    {% endfor %}
+                    <form action = "#tab_01" method = "post">
                         <div class="foto-bg"><img class="foto" src="data:image/webp;base64, {{ plot_url_1 }}" alt="Fig" onerror="this.style.display='none'"></div>
                         <input type="text" name="sizes1" class="input-text" id="int" placeholder="Input cube size"><br>
                         <input class="submit" value="Submit" type = "submit">
@@ -25,6 +28,9 @@
                     </div>
                 </div>
                 <div id="tab_02" class="tabs__block">
+                    {% for msg in get_flashed_messages() %}
+                    <div id="flash_err"><p>{{msg}}</p></div>
+                    {% endfor %}
                     <form action = "#tab_02" method = "post">
                         <div class="foto-bg"><img class="foto" src="data:image/webp;base64, {{ plot_url_2 }}" alt="Fig" onerror="this.style.display='none'"></div>
                         <input type="text" name="sizes2" class="input-text" id="int" placeholder="Input ball size"><br>
@@ -36,6 +42,9 @@
                     </div>
                 </div>
                 <div id="tab_03" class="tabs__block">
+                    {% for msg in get_flashed_messages() %}
+                    <div id="flash_err"><p>{{msg}}</p></div>
+                    {% endfor %}
                     <form action = "#tab_03" method = "post">
                         <div class="foto-bg"><img class="foto" src="data:image/webp;base64, {{ plot_url_3 }}" alt="Fig" onerror="this.style.display='none'"></div>
                         <input type="text" name="sizes31" class="input-text" id="int" placeholder="Input pyramid base"><br>
@@ -48,6 +57,9 @@
                     </div>
                 </div>
                 <div id="tab_04" class="tabs__block">
+                    {% for msg in get_flashed_messages() %}
+                    <div id="flash_err"><p>{{msg}}</p></div>
+                    {% endfor %}
                     <form action = "#tab_04" method = "post">
                         <div class="foto-bg"><img class="foto" src="data:image/webp;base64, {{ plot_url_4 }}" alt="Fig" onerror="this.style.display='none'"></div>
                         <input type="text" name="sizes41" class="input-text" id="int" placeholder="Input height of cylinder"><br>

@@ -29,31 +29,36 @@ def figures():
         cylinder = ["", ""]
         pyramid = ["", ""]
         cubes = request.form.get("sizes1")
+        error = None
         try:
             plot_url = fig.cube(int(cubes))
             return render_template("3dfigures.html", plot_url_1=plot_url)
         except:
-            print("error")
+            error = "Неверные входные данные"
         balls = request.form.get("sizes2")
         try:
             plot_url = fig.ball(int(balls))
             return render_template("3dfigures.html", plot_url_2=plot_url)
         except:
-            print("error")
+            error = "Неверные входные данные"
         pyramid[0] = request.form.get("sizes31")
         pyramid[1] = request.form.get("sizes32")
         try:
             plot_url = fig.pyramid(int(pyramid[0]), int(pyramid[1]))
             return render_template("3dfigures.html", plot_url_3=plot_url)
         except:
-            print("error")
+            error = "Неверные входные данные"
         cylinder[0] = request.form.get("sizes41")
         cylinder[1] = request.form.get("sizes42")
         try:
             plot_url = fig.cylinder(int(cylinder[0]), int(cylinder[1]))
             return render_template("3dfigures.html", plot_url_4=plot_url)
         except:
-            print("error")
+            error = "Неверные входные данные"
+
+        if error is not None:
+            flash(error)
+            return render_template("3dfigures.html")
 
     return render_template("3dfigures.html")
 
