@@ -7,23 +7,22 @@
 
 
 {% block workspace %}
+<form action = "/reg" method = "post">
 <div class="reg-wrapper">
     <h2 class="reg-hight-text">Registration</h2>
     <p class="reg-text1">Login</p>
-    <input name="login" type="text" class="reg-input">
+    <input name="login" type="text" class="reg-input"/>
     {% for msg in get_flashed_messages() %}
     <div id="flash_err"><p>{{msg}}</p></div>
     {% endfor %}
     <p class="reg-text2">Password</p>
-    <input name="pass" type="password" class="reg-input">
+    <input name="pass1" type="password" class="reg-input">
     {% for msg in get_flashed_messages() %}
     <div id="flash_err"><p>{{msg}}</p></div>
     {% endfor %}
     <p class="reg-text2">Repeat password</p>
-    <input name="pass" type="password" class="reg-input"><br>
-    {% for msg in get_flashed_messages() %}
-    <div id="flash_err"><p>{{msg}}</p></div>
-    {% endfor %}
+    <input name="pass2" type="password" class="reg-input"><br>
     <input type="submit" value="Register" class="reg-button">
 </div>
+</form>
 {% endblock %}
