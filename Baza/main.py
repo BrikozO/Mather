@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, flash
+from flask import Flask, render_template, url_for, request, flash, redirect
 import functional.Figures as fig
 import functional.graf as graf
 from sympy import symbols, integrate, diff, limit, simplify
@@ -83,8 +83,6 @@ def inprogress1():
     else:
         return render_template("sympanents.html")
 
-
-
 @main.route('/inprogress2')
 def inprogress2():
     return render_template("inprogress2.html")
@@ -95,13 +93,41 @@ def inprogress3():
     return render_template("inprogress3.html")
 
 
-@main.route('/reg')
-def regestration():
-    return render_template("regestration.html")
+@main.route("/reg", methods = ("GET", "POST"))
+def reg():
+    if request.method == "POST":
+        errors = ["Недопустимый символ",
+                  "Пароли не совпадают",
+                  "Недопустимая длина логина или пароля",
+                  "Имя не может состоять только из цифр"]
+        excepted_chars = "*?!'^+%&;/()=}][{$#"
+        name = request.form["login"]
+        password = request.form["pass1"]
+        passrepeat = request.form["pass2"]
+        try:
+            int(name)
+        except:
+            if 4 <= len(name) <= 20:
+                for char in name:
+                    if char in excepted_chars:
+                        flash(errors[0])
+                if 5 <= len(password) <= 20:
+                    if passrepeat == password:
+                        return redirect(url_for("loginning"))
+                    else:
+                        flash(errors[1])
+                else:
+                    flash(errors[2])
+            else:
+                flash(errors[2])
+        else:
+            flash(errors[3])
+
+    return render_template("registration.html")
 
 
 @main.route('/login')
-def logining():
+def loginning():
     return render_template("loginning.html")
 
 
