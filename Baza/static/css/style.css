@@ -229,6 +229,7 @@ td{
 	border-width: 5px;
 	border-color: #fff;
 	border-style: solid;
+	border-radius: 10px;
 	font-family: 'Jost';
 	font-size: 58px;
 	text-align: center

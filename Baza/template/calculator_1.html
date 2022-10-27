@@ -24,11 +24,18 @@
                         element = event.target
                         value = element.text
                         if value in '1234567890.+-**^/':
-                            if result.text in ["0", "Error", "infinity"]:
+                            if result.text in ["0", "Error", "Infinity"] and (value not in '+-*/^'):
                                 result.text = value
-                            elif value == '^':
+                            elif (result.text[-1] in '+-**/') and (value in '+-**/'):
+                                if result.text[-2:] == '**':
+                                    result.text == result.text[:-2] + value
+                                else:
+                                    result.text = result.text[:-1] + value
+                            elif (value == '^') and (result.text[-2:] != '**') and (result.text[-1] not in '+-**/'):
                                 result.text = result.text + '**'
-                            else:
+                            elif ('.' in result.text) and (value == '.'):
+                                result.text = result.text
+                            elif value != '^':
                                 result.text = result.text + value
                         elif value == "=":
                             try:
@@ -36,7 +43,7 @@
                             except:
                                 result.text = "Error"
                         elif value == "C":
-                            if len(result.text) > 1:
+                            if (len(result.text) > 1) and (result.text != 'Error') and (result.text != 'Infinity'):
                                 result.text = result.text[:-1]
                             else:
                                 result.text = 0
@@ -47,8 +54,6 @@
                                 result.text = int(1/(eval(result.text)))
                             else:
                                 result.text = 1/(eval(result.text))
-                        if len(result.text) > 25:
-                            result.text = 'Error'
                     for button in document.select("td"):
                         button.bind("click", action)
                 </script>
