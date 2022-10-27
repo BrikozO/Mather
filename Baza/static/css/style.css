@@ -669,12 +669,12 @@ td{
 }
 
 .login-button:hover {
-box-shadow: 0 3px #4433ff;
-top: 1px;
+	box-shadow: 0 3px #4433ff;
+	top: 1px;
 }
 .login-button:active {
-box-shadow: 0 0 #4433ff;
-top: 5px;
+	box-shadow: 0 0 #4433ff;
+	top: 5px;
 }
 
 .login-footer-text{
@@ -754,7 +754,7 @@ top: 5px;
 
 .reg-button{
 	margin: 63px 200px 0 290px;
-	width: 380px;
+	min-width: 380px;
 	height: 85px;
 	background: #2B30A9;
 	border-radius: 5px;
@@ -771,12 +771,12 @@ top: 5px;
 }
 
 .reg-button:hover {
-box-shadow: 0 3px #4433ff;
-top: 1px;
+	box-shadow: 0 3px #4433ff;
+	top: 1px;
 }
 
-.login-button:active {
-box-shadow: 0 0 #4433ff;
-top: 5px;
+.reg-button:active {
+	box-shadow: 0 0 #4433ff;
+	top: 5px;
 }
 /* registration */
