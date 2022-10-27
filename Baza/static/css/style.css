@@ -552,6 +552,14 @@ td{
 	line-height: 44px;
 	color: #FFFFFF;
 }
+
+.submit:hover{
+	background-color:  #4433ff;;
+}
+
+.submit:active{
+	background: #47389A;
+}
 /* workspce 3dfigures */
 
 
@@ -634,16 +642,30 @@ td{
 
 .login-button{
 	margin: 67px 270px 16px 270px;
-	width: 380px;
+	min-width: 380px;
 	height: 85px;
 	background: #2B30A9;
 	border-radius: 5px;
 	font-weight: 600;
 	font-size: 36px;
 	line-height: 52px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	outline: none;
 	color: #FFFFFF;
+	box-shadow: 0 5px #4433ff;
 }
 
+.login-button:hover {
+box-shadow: 0 3px #4433ff;
+top: 1px;
+}
+.login-button:active {
+box-shadow: 0 0 #4433ff;
+top: 5px;
+}
 
 .login-footer-text{
 	margin-left: 270px;
@@ -660,6 +682,14 @@ td{
 
 .logintoreg:hover{
 	text-decoration: underline;
+}
+
+#login-error{
+	color: #ff5757;
+	font-size: 20px;
+	width: 380px;
+	margin: 0 auto;
+	margin-top: 5px;
 }
 /* loginning */
 
@@ -721,6 +751,22 @@ td{
 	font-weight: 600;
 	font-size: 36px;
 	line-height: 52px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	outline: none;
 	color: #FFFFFF;
+	box-shadow: 0 5px #4433ff;
+}
+
+.reg-button:hover {
+box-shadow: 0 3px #4433ff;
+top: 1px;
+}
+
+.login-button:active {
+box-shadow: 0 0 #4433ff;
+top: 5px;
 }
 /* registration */
