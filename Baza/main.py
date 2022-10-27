@@ -63,27 +63,35 @@ def figures():
     return render_template("3dfigures.html")
 
 @main.route('/sympanents', methods=["POST","GET"])
-def inprogress1():
+def sympanents():
     if request.method=="POST":
-        fun= request.form["fun"]
+        fun = request.form["fun"]
         lim = request.form["lto"]
-        symp=request.form["symp"]
+        symp = request.form["symp"]
         error = None
-        try:
-            fun=simplify(fun)
-            x = symbols('x')
-            if symp == "Int":
-                ab=integrate(fun, x)
-            elif symp == "Dif":
-                ab=diff(fun, x)
-            elif symp == "Lim":
-                ab=limit(fun, x, lim)
-        except:
-            error = "Calculation error"
+        if symp != "None":
+            if any((symp == "Int", symp == "Dif")) and lim != "":
+                flash("Invalid input parameters")
+                return render_template("sympanents.html")
+            else:
+                try:
+                    fun = simplify(fun)
+                    x = symbols('x')
+                    if symp == "Int":
+                        ab=integrate(fun, x)
+                    elif symp == "Dif":
+                        ab=diff(fun, x)
+                    elif symp == "Lim":
+                        ab=limit(fun, x, lim)
+                except:
+                    error = "Calculation error"
+                else:
+                    return render_template("sympanents.html", abc=ab)
+                if error is not None:
+                    flash(error)
+                    return render_template("sympanents.html")
         else:
-            return render_template("sympanents.html", abc=ab)
-        if error is not None:
-            flash(error)
+            flash("Sympanent are not set")
             return render_template("sympanents.html")
     else:
         return render_template("sympanents.html")
