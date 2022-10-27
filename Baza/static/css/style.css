@@ -330,7 +330,6 @@ td{
 .resultsy{
 	font-size: 50px;
 	width: 965px;
-	margin-top: 10px;
 	border-radius: 10px;
 	background-color: #D9D9D9;
 }
@@ -413,8 +412,11 @@ td{
 }
 
 #flash_err{
+	color: #ff5757;
+	padding-top: 25px;
 	font-size: 30px;
 	width: 640px;
+	height: 55px;
 }
 /* workspce 2dgraf */
 
@@ -559,6 +561,14 @@ td{
 
 .submit:active{
 	background: #47389A;
+}
+
+#flash_err_3d{
+	color: #ff5757;
+	text-align: center;
+	height: 300px;
+	padding-top: 227px;
+	font-size: 30px;
 }
 /* workspce 3dfigures */
 
