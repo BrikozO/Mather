@@ -209,6 +209,55 @@ html,body {
 	background: #47389A;
     color: #FFFFFF;
 }
+
+.about-as{
+	position: relative;
+	height: 360px;
+	width: 100%;
+	background: white;
+	border-radius: 10px;
+}
+
+.aboutas-img{
+	width: 540px;
+	height: 100%;
+	border-radius: 10px 0 0 10px;
+}
+
+.aboutas-text{
+	position: absolute;
+	left: 590px;
+	width: 440px;
+	top: 40px;
+	font-weight: 500;
+	font-size: 50px;
+	color: #191724;
+	text-align: center;
+}
+
+.aboutas-button{
+	padding: 35px 0 ;
+	position: absolute;
+	text-align: center;
+	height: 100px;
+	width: 200px;
+	font-size: 30px;
+	left: 710px;
+	bottom: 20px;
+	text-decoration: none;
+	border-radius: 10px;
+	color: #191724;
+}
+
+.aboutas-button:hover{
+	background-color: #191724;
+	color: white;
+}
+
+.aboutas-button:active{
+	background: #47389A;
+    color: #FFFFFF;
+}
 /* workspace first*/
 
 
@@ -574,32 +623,81 @@ td{
 
 
 
-/* footer */
-.footer{
-	height: 130px;
-	margin-top: 30px;
+/* about_us */
+.about-us-first{
+	position: relative;
+	height: 400px;
+	background-color: white;
+	border-radius: 10px;
 }
 
-.nklinks{
-
-	color: white;
-	font-weight: 400;
-    font-size: 64px;
-    line-height: 120px;
-}
-.links{
-	width: 300px;
-	float: right;
-    position: relative;
+.about-us-left{
+	position: relative;
+	height: 400px;
+	background-color: white;
+	margin-top: 40px;
+	border-radius: 10px;
 }
 
-.github{
+.about-us-right{
+	position: relative;
+	height: 400px;
+	background-color: white;
+	margin-top: 40px;
+	border-radius: 10px;
+}
+
+.about-us-img-right{
 	position: absolute;
-	margin-left: 60px;
+	left: 600px;
+	border-radius: 0 10px 10px 0;
+	border-left: 2px solid #000;
 }
 
+.about-us-img-left{
+	position: absolute;
+	border-radius: 10px 0 0 10px;
+	border-right: 2px solid #000;
+}
 
-/* footer */
+.about-us-h-right{
+	margin-left: 100px;
+	font-weight: 500;
+    font-size: 45px;
+    line-height: 50px;
+	width: 400px;
+	height: 70px;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.about-us-h-left{
+	margin-left: 640px;
+	font-weight: 500;
+    font-size: 45px;
+    line-height: 50px;
+	width: 400px;
+	height: 70px;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.about-us-text-right{
+	margin: 40px 0 0 100px;
+	font-weight: 300;
+    font-size: 25px;
+	width: 400px;
+	text-align: center;
+}
+
+.about-us-text-left{
+	margin: 40px 0 0 640px;
+	font-weight: 300;
+    font-size: 25px;
+	width: 400px;
+	text-align: center;
+}
+/* about_us */
 
 
 
@@ -780,3 +878,32 @@ td{
 	top: 5px;
 }
 /* registration */
+
+
+
+/* footer */
+.footer{
+	height: 130px;
+	margin-top: 30px;
+}
+
+.nklinks{
+
+	color: white;
+	font-weight: 400;
+    font-size: 64px;
+    line-height: 120px;
+}
+.links{
+	width: 300px;
+	float: right;
+    position: relative;
+}
+
+.github{
+	position: absolute;
+	margin-left: 60px;
+}
+
+
+/* footer */
