@@ -144,5 +144,10 @@ def loginning():
     return render_template("loginning.html")
 
 
+@main.route('/about_us')
+def aboutas():
+    return render_template("about_us.html")
+
+
 if __name__ == "__main__":
     main.run(debug=True)
