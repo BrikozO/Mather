@@ -7,19 +7,21 @@
 
 
 {% block workspace %}
+<form action = "/login" method="post">
 <div class="login-wrapper">
     <h2 class="login-hight-text">Authorization</h2>
     <p class="login-text1">Login</p>
-    <input name="login" type="text" class="login-input">
+    <input name="login" required type="text" class="login-input">
     {% for msg in get_flashed_messages() %}
     <div id="login-error"><p>{{msg}}</p></div>
     {% endfor %}
     <p class="login-text2">Password</p>
-    <input name="pass" type="password" class="login-input"><br>
+    <input name="pass" required type="password" class="login-input"><br>
     {% for msg in get_flashed_messages() %}
     <div id="login-error"><p>{{msg}}</p></div>
     {% endfor %}
     <input type="submit" value="Login" class="login-button">
     <p class="login-footer-text">You don't have an account?   <a href="/reg" class="logintoreg">Register</a></p>
 </div>
+</form>
 {% endblock %}

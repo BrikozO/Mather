@@ -1,6 +1,17 @@
 {% extends 'index.html' %}
 
-
+{% block wrapbutton %}
+{% if not Authorized %}
+<div class="con-button">
+    <a class="button" href="/login">Sign in</a>
+</div>
+{% else %}
+<div class="con-button">
+    <p class="UserHi">Hello, {{Username}}</p>
+    <a class="button" href="/logout">Logout</a>
+</div>
+{% endif %}
+{% endblock %}
 
 {% block workspace %}
 <section class="workspace first">
