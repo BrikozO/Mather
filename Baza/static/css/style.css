@@ -136,6 +136,14 @@ html,body {
 	border-radius: 20px;
 }
 
+.UserHi{
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px 15px;
+    font-size: 40px;
+	border-radius: 20px;
+}
+
 .button:hover{
     background: #1A1533;
     color: #FFFFFF;

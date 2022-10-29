@@ -11,17 +11,17 @@
 <div class="reg-wrapper">
     <h2 class="reg-hight-text">Registration</h2>
     <p class="reg-text1">Login</p>
-    <input name="login" type="text" class="reg-input"/>
+    <input name="login" required type="text" class="reg-input"/>
     {% for msg in get_flashed_messages() %}
     <div id="login-error"><p>{{msg}}</p></div>
     {% endfor %}
     <p class="reg-text2">Password</p>
-    <input name="pass1" type="password" class="reg-input">
+    <input name="pass1" required type="password" class="reg-input">
     {% for msg in get_flashed_messages() %}
     <div id="login-error"><p>{{msg}}</p></div>
     {% endfor %}
     <p class="reg-text2">Repeat password</p>
-    <input name="pass2" type="password" class="reg-input"><br>
+    <input name="pass2" required type="password" class="reg-input"><br>
     <input type="submit" value="Register" class="reg-button">
 </div>
 </form>
