@@ -143,7 +143,10 @@ html,body {
     font-size: 40px;
 	border-radius: 20px;
 }
-
+.UserHi span{
+	font-weight: 400;
+	text-shadow: 2px 2px 2px #b4b4b4;
+}
 .button:hover{
     background: #1A1533;
     color: #FFFFFF;
@@ -189,11 +192,20 @@ html,body {
 }
 
 .item-text{
-	height: 120px;
+	height: 80px;
 	margin-top: 40px;
 	font-weight: 100;
 	font-size: 20px;
 	background: white;
+}
+
+.free-item{
+	height: 40px;
+	text-shadow:1px 1px 1px #191724;
+	padding-top: 15px;
+	font-size: 20px;
+	color: blue;
+
 }
 
 .item-button{
@@ -206,6 +218,22 @@ html,body {
 	border-radius: 0 0 5px 5px;
 	color: #191724;
 	background: white;
+}
+
+.afr-item{
+	height: 40px;
+	text-shadow:1px 1px 1px #191724;
+	padding-top: 15px;
+	font-size: 20px;
+	color: green;
+}
+
+.no-afr-item{
+	height: 40px;
+	text-shadow:1px 1px 1px #191724;
+	padding-top: 15px;
+	font-size: 20px;
+	color: red;
 }
 
 .item-button:hover{

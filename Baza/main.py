@@ -162,10 +162,10 @@ def sympanents():
         return render_template("sympanents.html")
 
 
-@main.route('/inprogress2')
+@main.route('/physics')
 @login_required
 def inprogress2():
-    return render_template("inprogress2.html")
+    return render_template("physics.html")
 @main.route('/shary.html')
 def shary():
     return render_template("shary.html")
