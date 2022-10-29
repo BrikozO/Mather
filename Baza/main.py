@@ -99,7 +99,9 @@ def sympanents():
 @main.route('/inprogress2')
 def inprogress2():
     return render_template("inprogress2.html")
-
+@main.route('/shary.html')
+def shary():
+    return render_template("shary.html")
 
 @main.route('/inprogress3')
 def inprogress3():
