@@ -513,6 +513,17 @@ td{
 	overflow: hidden;
 }
 
+.bg-3dgraf{
+	display: block;
+	position: absolute;
+	font-size: 60px;
+	color: white;
+	width: 400px;
+	top: 300px;
+	left: 340px;
+	text-align: center;
+}
+
 .content {
 	height: 800px;
 	max-width: 1140px;
@@ -734,6 +745,27 @@ td{
 	text-align: center;
 }
 /* about_us */
+
+
+
+/* physics */
+.frame-physics{
+	margin-left: 209px;
+	margin-top: 40px;
+	width: 662px;
+	height: 504px;
+	border: 2px solid #191724;
+	border-radius: 10px;
+	box-shadow: 0 0 5px #191724;
+}
+
+.physics-text{
+	margin-top: 40px;
+	text-align: center;
+	font-size: 40px;
+	text-shadow: 1px 1px 1px #191724;
+}
+/* physics */
 
 
 
