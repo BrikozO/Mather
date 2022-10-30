@@ -190,25 +190,28 @@ def matrix():
                         empty_matrix[mr][mc]=int(request.form[matrix_string])
                 fm=np.matrix(empty_matrix)
                 if inp_operation=="Find determinant":
-                    mat_det=np.linalg.det(fm)
-                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, mat_det=mat_det)
+                    mat_det=round(np.linalg.det(fm))
+                    fm = np.squeeze(np.asarray(fm))
+                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, mat_det=mat_det, fm=fm)
                 if inp_operation=="Find rank":
-                    mat_det=np.linalg.matrix_rank(fm)
-                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, mat_det=mat_det)
+                    mat_det=round(np.linalg.matrix_rank(fm))
+                    fm = np.squeeze(np.asarray(fm))
+                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, mat_det=mat_det, fm=fm)
                 if inp_operation in ["Transpose","Squaring","Find reverse"]:
                     if inp_operation=="Transpose":
                         row, column = column, row
-                        mat_det=np.squeeze(np.asarray(fm.getT()))
+                        fm=np.squeeze(np.asarray(fm.getT()))
                     if inp_operation=="Squaring":
-                        mat_det=np.squeeze(np.asarray(np.matmul(fm, fm)))
+                        fm=np.squeeze(np.asarray(np.matmul(fm, fm)))
                     if inp_operation=="Find reverse":
-                        mat_det=np.squeeze(np.asarray(np.linalg.inv(fm)))
-                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, fm=mat_det)
-        except:
+                        fm=np.squeeze(np.asarray(np.linalg.inv(fm)))
+                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, fm=fm)
+
+        except (np.linalg.LinAlgError,ValueError):
             error = "You can't use this matrix for this type of operation"
         if error is not None:
             flash(error)
-            return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, fm=fm, err=error)
+            return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, err=error)
         return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation)
     else:
         return render_template("matrix.html")
