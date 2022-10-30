@@ -309,7 +309,7 @@ html,body {
 	font-family: 'Jost';
 	font-size: 58px;
 }
-td{
+#table-calc td{
 	padding: 17px 66px 17px 66px;
 	border-width: 5px;
 	border-color: #fff;
@@ -433,6 +433,140 @@ td{
 
 }
 /* workspace sympanents */
+
+/* workspace matrix*/
+.matrix-main-wid{
+	height: 510px;
+	padding-top: 30px;
+}
+
+.matrix-inf-wid{
+	width: 640px;
+	height: 480px;
+	border-radius: 10px;
+	background: #D9D9D9;
+}
+.matrix-operation-wid{
+	background: #D9D9D9;
+	position: absolute;
+	width: 340px;
+	height: 630px;
+	left: 740px;
+	top: 30px;
+	border-radius: 10px;
+	padding: 10px;
+}
+#matrix-size-text{
+	font-family: 'Jost';
+	font-size: 21px;
+}
+.matrix-size{
+	width: 50px;
+	height: 40px;
+	text-align: center;
+	font-family: 'Jost';
+	font-size: 30px;
+	border-radius: 3px;
+}
+.matrix-x{
+	font-family: 'Jost';
+	font-size: 30px;
+	padding-top: 10px;
+}
+#matrix-submit{
+	margin-top: 15px;
+	font-family: 'Jost';
+	font-size: 25px;
+	color: #fff;
+	background-color: #2B30A9;
+	border-radius: 3px;
+	width: 130px;
+	height: 40px;
+}
+#matrix-submit:hover{
+	background: #3c41e0;
+}
+#matrix-submit:active {
+	background: #000;
+}
+.pre-table-matrix {
+	background: #D9D9D9;
+	border-radius: 10px;
+	padding-top: 80px;
+	height: 400px;
+}
+#table-matrix td{
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 35px;
+	min-height: 35px;
+	text-align: center
+}
+.matrix-values{
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	font-family: 'Jost';
+	font-size: 20px;
+	border-radius: 3px;
+	background: #D9D9D9;
+}
+.matrix-brackets{
+	display:inline-block;
+	padding: 3px 8px;
+	margin-left: 145px;
+	border-left:2px solid #000;
+	border-right:2px solid #000;
+	border-radius:10px;
+	position:relative;
+}
+#lable-matrix{
+	text-align: center;
+	font-family: 'Jost';
+	font-size: 30px;
+	padding-top: 10px;
+}
+.matrix-operation-form{
+	height: 600px;
+}
+#matrix-operation-text{
+	font-family: 'Jost';
+	font-size: 24px;
+	text-align: center;
+	margin-top: 5px;
+}
+.matrix-operations{
+	font-family: 'Jost';
+	font-size: 20px;
+	margin-left: 0;
+	margin-top: 10px;
+}
+#matrix-edit{
+	font-family: 'Jost';
+	font-size: 25px;
+	color: #fff;
+	background-color: #2B30A9;
+	border-radius: 3px;
+	width: 130px;
+	height: 40px;
+	margin-top: 460px;
+	margin-left: 90px;
+	position: absolute
+}
+#matrix-edit:hover{
+	background: #3c41e0;
+}
+#matrix-edit:active {
+	background: #000;
+}
+#matrix-edit-text{
+	font-family: 'Jost';
+	font-size: 22px;
+	text-align: center;
+	margin-top: 430px;
+	position: absolute;
+}
+/* workspace matrix*/
 
 /* workspce 2dgraf */
 .input-text2d{
