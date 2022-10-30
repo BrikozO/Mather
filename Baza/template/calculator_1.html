@@ -10,7 +10,7 @@
             <div class="calculator">
                 <script type="text/python">
                     from browser import document, html
-                    calc = html.TABLE()
+                    calc = html.TABLE(id="table-calc")
                     calc <= html.TR(html.TH(html.DIV("0", id="result"), colspan=4))
                     calc <= html.TR(html.TD('C', id="clear") + html.TD('CE', id="clear") + html.TD('^', id="operation") + html.TD('/', id="operation"))
                     calc <= html.TR(html.TD('1', id="number") + html.TD('2', id="number") + html.TD('3', id="number") + html.TD('*', id="operation"))
