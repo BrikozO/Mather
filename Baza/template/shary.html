@@ -20,8 +20,10 @@
         from browser import document, window, bind
         from random import randint
         from math import sin, cos, exp, pi, atan, sqrt
+
+        colors = ["#0095DD", "#000000", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF"]
         ballRadius = 20
-        ballcount = 10
+        ballcount = 15
 
     
         class Balls():
@@ -33,6 +35,7 @@
                 self.t = []
                 self.v0 = []
                 self.angle = []
+                self.color = []
                 self.vx = []
                 self.v0y = []
                 self.vy = []
@@ -43,9 +46,23 @@
 
             def addBall(self, x, y):
                 k = self.ballcount
+                if k == ballcount:
+                    self.t = self.t[1:]
+                    self.v0 = self.v0[1:]
+                    self.angle = self.angle[1:]
+                    self.color = self.color[1:]
+                    self.vx = self.vx[1:]
+                    self.v0y = self.v0y[1:]
+                    self.vy = self.vy[1:]
+                    self.x0 = self.x0[1:]
+                    self.y0 = self.y0[1:]
+                    self.x = self.x[1:]
+                    self.y = self.y[1:]
+                    k = ballcount - 1
                 self.t.append(0)
                 self.v0.append(randint(50, 150))
                 self.angle.append(randint(1, 10))
+                self.color.append(colors[randint(0, 7)])
                 self.vx.append(self.v0[k] * cos(self.angle[k]))
                 self.v0y.append(self.v0[k] * sin(self.angle[k]))
                 self.vy.append(self.v0[k] * sin(self.angle[k]))
@@ -53,17 +70,18 @@
                 self.y0.append(y)
                 self.x.append(self.x0[k] + self.vx[k] * self.t[k])
                 self.y.append(self.y0[k] + self.v0y[k] * self.t[k] - self.g * self.t[k] * self.t[k] / 2)
-                self.ballcount += 1
+                self.ballcount = min(ballcount, self.ballcount + 1)
 
             def drawBalls(self):
                 for i in range(self.ballcount):
                     ctx = self.ctx 
                     ctx.beginPath()
                     ctx.arc(self.x[i], canvas.height - self.y[i], ballRadius, 0, 2 * pi)
-                    ctx.fillStyle = "#0095DD"
+                    ctx.fillStyle = self.color[i]
                     ctx.fill()
                     ctx.closePath()
                     self.updateBalls()
+                    self.changecoords()
 
             def updateBalls(self):
                 for i in range(self.ballcount):
@@ -98,7 +116,7 @@
                     for j in range(i+1, self.ballcount):
                         dx = self.x[i] - self.x[j]
                         dy = self.y[i] - self.y[j]
-                        if sqrt(dx ** 2 + dy ** 2) <= 2 * ballRadius:
+                        if sqrt(dx ** 2 + dy ** 2) < 2 * ballRadius:
                             v1x = self.vx[i]
                             v1y = self.vy[i]
                             v2x = self.vx[j]
@@ -117,7 +135,8 @@
                             self.y0[j] = min(max(self.y[j] + dy/2 - ballRadius * sin(ang), ballRadius), canvas.height - ballRadius)
                             self.t[j] = 0
 
-    
+            def changecoords(self):
+                for i in range(self.ballcount):    
                     self.t[i] += 0.1 / self.ballcount
                     self.vy[i] -= self.g * 0.1 / self.ballcount
                     self.vy[i] = self.vy[i] * 0.99999
