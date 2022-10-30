@@ -8,6 +8,7 @@ import functional.graf as graf
 import os
 import sqlite3
 from sympy import symbols, integrate, diff, limit, simplify
+import numpy as np
 
 
 DATABASE = "tmp/nillbase.db"
@@ -170,10 +171,45 @@ def inprogress2():
 def shary():
     return render_template("shary.html")
 
-@main.route('/inprogress3')
+@main.route('/matrix', methods=["POST","GET"])
 @login_required
-def inprogress3():
-    return render_template("inprogress3.html")
+def matrix():
+    if request.method == "POST":
+        error = None
+        try:
+            row = request.form["input_row"]
+            column = request.form["input_column"]
+            inp_operation = request.form["inp_operation"]
+            if inp_operation!="start":
+                empty_matrix = [[0 for i in range(int(column))] for j in range(int(row))]
+                for mr in range(int(row)):
+                    for mc in range(int(column)):
+                        matrix_string="matrix"+str(mr)+str(mc)
+                        empty_matrix[mr][mc]=int(request.form[matrix_string])
+                fm=np.matrix(empty_matrix)
+                if inp_operation=="Find determinant":
+                    mat_det=np.linalg.det(fm)
+                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, mat_det=mat_det)
+                if inp_operation=="Find rank":
+                    mat_det=np.linalg.matrix_rank(fm)
+                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, mat_det=mat_det)
+                if inp_operation in ["Transpose","Squaring","Find reverse"]:
+                    if inp_operation=="Transpose":
+                        row, column = column, row
+                        mat_det=np.squeeze(np.asarray(fm.getT()))
+                    if inp_operation=="Squaring":
+                        mat_det=np.squeeze(np.asarray(np.matmul(fm, fm)))
+                    if inp_operation=="Find reverse":
+                        mat_det=np.squeeze(np.asarray(np.linalg.inv(fm)))
+                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, fm=mat_det)
+        except:
+            error = "You can't use this matrix for this type of operation"
+        if error is not None:
+            flash(error)
+            return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, fm=fm, err=error)
+        return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation)
+    else:
+        return render_template("matrix.html")
 
 
 @main.route("/reg", methods = ("GET", "POST"))
