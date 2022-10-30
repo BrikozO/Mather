@@ -483,6 +483,7 @@ html,body {
 	border-radius: 3px;
 	width: 130px;
 	height: 40px;
+	text-decoration: none;
 }
 #matrix-submit:hover{
 	background: #3c41e0;
