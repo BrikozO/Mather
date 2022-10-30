@@ -72,6 +72,8 @@ def close_db(error):
 #ссылки  на разные разделы
 @main.route('/')
 def index():
+    if current_user.is_authenticated and Authorized == False:
+        logout_user()
     return render_template("first.html", Authorized = Authorized, Username = Username)
 
 
