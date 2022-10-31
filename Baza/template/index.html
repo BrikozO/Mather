@@ -33,16 +33,18 @@
   <div class="conteiner">
     <div class="otc"></div>
     {% block workspace %}{% endblock %}
-
-  
-    <footer class="footer">
-      <span class="nklinks">Nill Kiggers links</span>
-      <div class="links">
-        <a href="https://discord.gg/vmzGtc69pB" class="discord"><img src="../static/icons/discord.svg" alt="discord"></a>
-        <a href="https://github.com/BrikozO/NillKiggers" class="github"><img src="../static/icons/github.svg" alt="github"></a>
-      </div>
-    </footer>
   </div>
+    {% block footer%}
+    <div class="conteiner">
+      <footer class="footer">
+        <span class="nklinks">Nill Kiggers links</span>
+        <div class="links">
+          <a href="https://discord.gg/vmzGtc69pB" class="discord"><img src="../static/icons/discord.svg" alt="discord"></a>
+          <a href="https://github.com/BrikozO/NillKiggers" class="github"><img src="../static/icons/github.svg" alt="github"></a>
+        </div>
+      </footer>
+    </div>
+    {% endblock %}
 
   
 
