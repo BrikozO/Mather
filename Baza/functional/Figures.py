@@ -50,17 +50,18 @@ def pyramid(a, b):
     img = BytesIO()
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
-
+    #Построение пирамиды с помощью создания матрицы
     v = np.array([[-1*(a/2), -1*(a/2), -1*(a/2)],
                   [1*(a/2), -1*(a/2), -1*(a/2)],
                   [1*(a/2), 1*(a/2), -1*(a/2)],
                   [-1*(a/2), 1*(a/2), -1*(a/2)],
                   [0, 0, 1 * b]])
     ax.scatter3D(v[:, 0], v[:, 1], v[:, 2])
-
+    #Расставление ранее заданых в матрице точек на трехмерной плоскости
     verts = [[v[0], v[1], v[4]], [v[0], v[3], v[4]],
              [v[2], v[1], v[4]], [v[2], v[3], v[4]], [v[0], v[1], v[2], v[3]]]
 
+    #задание параметров построения
     ax.add_collection3d(Poly3DCollection(verts, facecolors='b', linewidths=1, edgecolors='r'))
 
     plt.savefig(img, format='png')

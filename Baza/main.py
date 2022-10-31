@@ -10,7 +10,7 @@ import sqlite3
 from sympy import symbols, integrate, diff, limit, simplify
 import numpy as np
 
-
+#Начальная конфигурация
 DATABASE = "tmp/nillbase.db"
 DEBUG = True
 SECRET_KEY = "312hbFNqld%1294"
@@ -20,12 +20,12 @@ main.config.from_object(__name__)
 
 main.config.update(dict(DATABASE = os.path.join(main.root_path, "database/nillbase.db")))
 
-
+#Переадресация на авторизацию в случае непрохождения проверки login_required
 login_manager = LoginManager(main)
 login_manager.login_view = "loginning"
 login_manager.login_message = "Access denied"
 
-
+#Задание начальных значений переменных, передаваемых в index
 Authorized = False
 Username = ""
 
@@ -69,9 +69,10 @@ def close_db(error):
         g.link_db.close()
 
 
-#ссылки  на разные разделы
+#ссылки на разные разделы
 @main.route('/')
 def index():
+    #Проверка на обновление сессии браузера
     if current_user.is_authenticated and Authorized == False:
         logout_user()
     return render_template("first.html", Authorized = Authorized, Username = Username)
@@ -89,9 +90,12 @@ main.register_blueprint(graf.bp)
 
 
 @main.route('/3dfigures', methods = ("GET", "POST"))
+#Необходиомсть авторизации
 @login_required
 def figures():
     if request.method == "POST":
+        #Попытка построить фигуры при помощи try-except
+        #Через фукнции из figures.py
         cylinder = ["", ""]
         pyramid = ["", ""]
         cubes = request.form.get("sizes1")
@@ -100,28 +104,29 @@ def figures():
             plot_url = fig.cube(int(cubes))
             return render_template("3dfigures.html", plot_url_1=plot_url)
         except:
-            error = "Неверные входные данные"
+            error = "Incorrect input data"
         balls = request.form.get("sizes2")
         try:
             plot_url = fig.ball(int(balls))
             return render_template("3dfigures.html", plot_url_2=plot_url)
         except:
-            error = "Неверные входные данные"
+            error = "Incorrect input data"
         pyramid[0] = request.form.get("sizes31")
         pyramid[1] = request.form.get("sizes32")
         try:
             plot_url = fig.pyramid(int(pyramid[0]), int(pyramid[1]))
             return render_template("3dfigures.html", plot_url_3=plot_url)
         except:
-            error = "Неверные входные данные"
+            error = "Incorrect input data"
         cylinder[0] = request.form.get("sizes41")
         cylinder[1] = request.form.get("sizes42")
         try:
             plot_url = fig.cylinder(int(cylinder[0]), int(cylinder[1]))
             return render_template("3dfigures.html", plot_url_4=plot_url)
         except:
-            error = "Неверные входные данные"
+            error = "Incorrect input data"
 
+        #Вывод ошибки если входные данные не верны
         if error is not None:
             flash(error)
             return render_template("3dfigures.html")
@@ -220,6 +225,7 @@ def matrix():
 @main.route("/reg", methods = ("GET", "POST"))
 def reg():
     if request.method == "POST":
+        #Задание входных данных и вариантов возможных ошибок через массив
         errors = ["Passwords don't match",
                   "Invalid login (4 - 20) or password (5 - 20) length",
                   "The name cannot consist only numbers",
@@ -229,16 +235,20 @@ def reg():
         password = request.form["pass1"]
         passrepeat = request.form["pass2"]
         error = None
+        #Проверки входных данных в формы регистрации на ошибки
         try:
             int(name)
         except:
             if 4 <= len(name) <= 20:
                 for char in name:
                     if char in excepted_chars:
+                        #Вывод ошибки вне массива, т.к. для нее необходим символ "char"
                         error = f"Invalid character {char}"
                 if 5 <= len(password) <= 20:
                     if passrepeat == password:
+                        #Конвертация пароля в hash
                         hash = generate_password_hash(password)
+                        #Добавление пользователя в базу данных
                         res = dbase.AddUser(name, hash)
                         if res:
                             return redirect(url_for("loginning"))
@@ -262,6 +272,7 @@ def reg():
 @main.route('/logout')
 @login_required
 def logout():
+    #Выход пользователя из аккаунта при нажатии кнопки "logout"
     logout_user()
     global Authorized
     Authorized = False
@@ -270,11 +281,16 @@ def logout():
 
 @main.route('/login', methods = ("GET", "POST"))
 def loginning():
+    #Проверка пользователя на авторизацию, если авторизован:
     if current_user.is_authenticated:
         return redirect(url_for("index"))
+    #Если нет:
     if request.method == "POST":
+        #Получение данных о пользователе из базы данных
         user = dbase.GetUserByLogin(request.form["login"])
         if user and check_password_hash(user["pswrd"], request.form["pass"]):
+            #Авторизация пользователя
+            #Передача переменных в index для смены данных в шапке сайта
             userlogin = UserLogin().create(user)
             login_user(userlogin)
             global Username
@@ -282,7 +298,7 @@ def loginning():
             global Authorized
             Authorized = True
             return redirect(url_for("index"))
-
+        #Ошибка в случае ввода некорректных данных
         flash("Invalid Login or Password")
 
     return render_template("loginning.html")
