@@ -894,10 +894,20 @@ html,body {
 	text-align: center;
 }
 
+.about-us-text-first{
+	margin: 40px 0 0 100px;
+	font-weight: 300;
+    font-size: 25px;
+	line-height: 25px;
+	width: 400px;
+	text-align: center;
+}
+
 .about-us-text-right{
 	margin: 40px 0 0 100px;
 	font-weight: 300;
     font-size: 25px;
+	line-height: 30px;
 	width: 400px;
 	text-align: center;
 }
@@ -906,6 +916,7 @@ html,body {
 	margin: 40px 0 0 640px;
 	font-weight: 300;
     font-size: 25px;
+	line-height: 30px;
 	width: 400px;
 	text-align: center;
 }
