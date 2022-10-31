@@ -4,7 +4,16 @@
 
 {% block workspace %}
 <section class="workspace">
-    <div class="input-window">
+    <div class="input-window-matrix">
+        <div class="infsymp">
+
+            <h2 class="inf-text"> Information</h2>
+            <p class="text">Here you can enter the size of the matrix,<br>
+                and then by entering numeric values into the matrix cells,<br>
+                transform it using elementary operations.
+            </p>
+
+        </div>
         <div class="matrix-operation-wid">
             {% if request.method != "POST" %}
             <p id="matrix-size-text">Select the size of Matrix:</p>
@@ -42,67 +51,66 @@
                     <option>Find rank</option>
                     <option>Squaring</option>
                     <option>Find reverse</option>
-                </select>
+                </select><br>
                 <input type="submit" value="Submit" id="matrix-submit">
-                <a  href='http://127.0.0.1:5000/matrix' id="matrix-submit">Edit size</a>
+                <a  href='/matrix' class="matrix-submit">Edit size</a>
 
             {% endif %}
         </div>
         <div class="matrix-main-wid">
             <div class="matrix-inf-wid">
                 {% for msg in get_flashed_messages() %}
-                <div id="flash_err"><p>{{msg}}</p></div>
+                <div id="flash_err_matrix"><p>{{msg}}</p></div>
                 {% endfor %}
                 {% if err!="You can't use this matrix for this type of operation" %}
-                    {% if request.method == 'POST' %}
+                {% if request.method == 'POST' %}
+                {% if inp_operation in ['start','Select the operation!'] %}
+                <h1 id="lable-matrix">Matrix A of dimension {{row[-1]+1}} x {{column[-1]+1}}</h1>
+                <div class="pre-table-matrix">
+                <div class="matrix-brackets">
+                    <table id="table-matrix">
+                    {% for i in row %}
+                        <tr>
+                        {% for j in column %}
+                            <td>
+                                <input type="text" class="matrix-values" name="matrix{{i}}{{j}}"  value="0">
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    </form>
+                </div>
+                {% endif %}
 
-                        {% if inp_operation in ['start','Select the operation!'] %}
-                        <h1 id="lable-matrix">Matrix A of dimension {{row[-1]+1}} x {{column[-1]+1}}</h1>
-                        <div class="pre-table-matrix">
-                        <div class="matrix-brackets">
-                            <table id="table-matrix">
-                            {% for i in row %}
-                                <tr>
-                                {% for j in column %}
-                                    <td>
-                                        <input type="text" class="matrix-values" name="matrix{{i}}{{j}}"  value="0">
-                                    </td>
-                                {% endfor %}
-                                </tr>
-                            {% endfor %}
-                            </table>
-                            </form>
-                        </div>
-                        {% endif %}
+                {% if inp_operation == 'Find determinant' %}
+                <h1 id="lable-matrix">The Determinant Is: {{mat_det}} </h1>
+                <div class="pre-table-matrix">
+                {% endif %}
 
-                        {% if inp_operation == 'Find determinant' %}
-                            <h1 id="lable-matrix">The Determinant Is: {{mat_det}} </h1>
-                        <div class="pre-table-matrix">
-                        {% endif %}
+                {% if inp_operation in ['Transpose','Squaring','Find reverse'] %}
+                <h1 id="lable-matrix">Matrix A of dimension {{row[-1]+1}} x {{column[-1]+1}}</h1>
+                <div class="pre-table-matrix">
+                <div class="matrix-brackets">
+                    <table id="table-matrix">
+                    {% for i in row %}
+                        <tr>
+                        {% for j in column %}
+                            <td>
+                                <input type="text" class="matrix-values" name="matrix{{i}}{{j}}"  value={{fm[i][j]}}>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    </form>
+                </div>
+                {% endif %}
 
-                        {% if inp_operation in ['Transpose','Squaring','Find reverse'] %}
-                        <h1 id="lable-matrix">Matrix A of dimension {{row[-1]+1}} x {{column[-1]+1}}</h1>
-                        <div class="pre-table-matrix">
-                        <div class="matrix-brackets">
-                            <table id="table-matrix">
-                            {% for i in row %}
-                                <tr>
-                                {% for j in column %}
-                                    <td>
-                                        <input type="text" class="matrix-values" name="matrix{{i}}{{j}}"  value={{fm[i][j]}}>
-                                    </td>
-                                {% endfor %}
-                                </tr>
-                            {% endfor %}
-                            </table>
-                            </form>
-                        </div>
-                        {% endif %}
-
-                        {% if inp_operation == 'Find rank' %}
-                            <h1 id="lable-matrix">The Rank Is: {{mat_det}} </h1>
-                        <div class="pre-table-matrix">
-                        {% endif %}
+                {% if inp_operation == 'Find rank' %}
+                <h1 id="lable-matrix">The Rank Is: {{mat_det}} </h1>
+                <div class="pre-table-matrix">
+                    {% endif %}
 
                     {% endif %}
                     {% endif %}

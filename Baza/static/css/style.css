@@ -436,24 +436,30 @@ html,body {
 /* workspace sympanents */
 
 /* workspace matrix*/
+.input-window-matrix{
+	background: white;
+	margin: 30px;
+	margin-top: 0;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
 .matrix-main-wid{
-	height: 510px;
+	min-height: 0px;
 	padding-top: 30px;
 }
 
 .matrix-inf-wid{
-	width: 640px;
-	height: 480px;
+	width: 1080px;
+	min-height: 0px;
 	border-radius: 10px;
 	background: #D9D9D9;
 }
 .matrix-operation-wid{
 	background: #D9D9D9;
-	position: absolute;
-	width: 340px;
-	height: 630px;
-	left: 740px;
-	top: 30px;
+	margin-top: 30px;
+	width: 1080px;
+	height: 150px;
 	border-radius: 10px;
 	padding: 10px;
 }
@@ -483,6 +489,15 @@ html,body {
 	border-radius: 3px;
 	width: 130px;
 	height: 40px;
+}
+.matrix-submit{
+	padding: 2px 22px;
+	font-size: 25px;
+	color: #fff;
+	background-color: #2B30A9;
+	border-radius: 3px;
+	width: 130px;
+	height: 40px;
 	text-decoration: none;
 }
 #matrix-submit:hover{
@@ -491,11 +506,19 @@ html,body {
 #matrix-submit:active {
 	background: #000;
 }
+.matrix-submit:hover{
+	background: #3c41e0;
+}
+.matrix-submit:active {
+	background: #000;
+}
 .pre-table-matrix {
+	text-align: center;
 	background: #D9D9D9;
 	border-radius: 10px;
-	padding-top: 80px;
-	height: 400px;
+	margin-top: 40px;
+	padding-bottom: 20px;
+	min-height: 0px;
 }
 #table-matrix td{
 	margin-left: auto;
@@ -509,14 +532,13 @@ html,body {
 	height: 35px;
 	text-align: center;
 	font-family: 'Jost';
-	font-size: 20px;
+	font-size: 25px;
 	border-radius: 3px;
 	background: #D9D9D9;
 }
 .matrix-brackets{
 	display:inline-block;
 	padding: 3px 8px;
-	margin-left: 145px;
 	border-left:2px solid #000;
 	border-right:2px solid #000;
 	border-radius:10px;
@@ -567,6 +589,13 @@ html,body {
 	text-align: center;
 	margin-top: 430px;
 	position: absolute;
+}
+#flash_err_matrix{
+	color: #ff5757;
+	padding: 15px 0 15px 20px;
+	font-size: 30px;
+	width: 640px;
+	height: 60px;
 }
 /* workspace matrix*/
 
