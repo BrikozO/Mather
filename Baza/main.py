@@ -194,6 +194,9 @@ def matrix():
                         matrix_string="matrix"+str(mr)+str(mc)
                         empty_matrix[mr][mc]=int(request.form[matrix_string])
                 fm=np.matrix(empty_matrix)
+                if inp_operation=="Select the operation!":
+                    fm = np.squeeze(np.asarray(fm))
+                    return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, fm=fm)
                 if inp_operation=="Find determinant":
                     mat_det=round(np.linalg.det(fm))
                     fm = np.squeeze(np.asarray(fm))
@@ -212,7 +215,7 @@ def matrix():
                         fm=np.squeeze(np.asarray(np.linalg.inv(fm)))
                     return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, fm=fm)
 
-        except (np.linalg.LinAlgError,ValueError):
+        except :
             error = "You can't use this matrix for this type of operation"
         if error is not None:
             flash(error)
