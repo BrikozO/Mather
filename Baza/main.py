@@ -21,8 +21,9 @@ main.config.from_object(__name__)
 #Переопределение местоположения БД по адресу database/nillbase.db
 main.config.update(dict(DATABASE = os.path.join(main.root_path, "database/nillbase.db")))
 
-#Переадресация на авторизацию в случае непрохождения проверки login_required
+#Экземпляр класса flask_login
 login_manager = LoginManager(main)
+#Переадресация на авторизацию в случае непрохождения проверки login_required
 login_manager.login_view = "loginning"
 login_manager.login_message = "Access denied"
 
@@ -30,7 +31,7 @@ login_manager.login_message = "Access denied"
 Authorized = False
 Username = ""
 
-
+#Обработка функции UserLogin
 @login_manager.user_loader
 def load_user(user_id):
     return UserLogin().fromDB(user_id, dbase)
