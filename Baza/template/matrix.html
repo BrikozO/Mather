@@ -73,7 +73,7 @@
                         <tr>
                         {% for j in column %}
                             <td>
-                                <input type="text" class="matrix-values" name="matrix{{i}}{{j}}"  value="0">
+                                <input type="text" class="matrix-values" name="matrix{{i}}{{j}}"  {%if inp_operation == 'start' %} value="0" {% endif %} {%if inp_operation == 'Select the operation!' %} value={{fm[i][j]}} {% endif %} >
                             </td>
                         {% endfor %}
                         </tr>
@@ -86,6 +86,20 @@
                 {% if inp_operation == 'Find determinant' %}
                 <h1 id="lable-matrix">The Determinant Is: {{mat_det}} </h1>
                 <div class="pre-table-matrix">
+                <div class="matrix-brackets">
+                <table id="table-matrix">
+                {% for i in row %}
+                    <tr>
+                    {% for j in column %}
+                        <td>
+                            <input type="text" class="matrix-values" name="matrix{{i}}{{j}}"  value={{fm[i][j]}}>
+                        </td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </table>
+                </form>
+                </div>
                 {% endif %}
 
                 {% if inp_operation in ['Transpose','Squaring','Find reverse'] %}
@@ -110,6 +124,20 @@
                 {% if inp_operation == 'Find rank' %}
                 <h1 id="lable-matrix">The Rank Is: {{mat_det}} </h1>
                 <div class="pre-table-matrix">
+                <div class="matrix-brackets">
+                <table id="table-matrix">
+                {% for i in row %}
+                    <tr>
+                    {% for j in column %}
+                        <td>
+                            <input type="text" class="matrix-values" name="matrix{{i}}{{j}}"  value={{fm[i][j]}}>
+                        </td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </table>
+                </form>
+                </div>
                     {% endif %}
 
                     {% endif %}
