@@ -18,6 +18,7 @@ SECRET_KEY = "312hbFNqld%1294"
 main = Flask(__name__, template_folder="template")
 main.config.from_object(__name__)
 
+#Переопределение местоположения БД по адресу database/nillbase.db
 main.config.update(dict(DATABASE = os.path.join(main.root_path, "database/nillbase.db")))
 
 #Переадресация на авторизацию в случае непрохождения проверки login_required
@@ -34,13 +35,13 @@ Username = ""
 def load_user(user_id):
     return UserLogin().fromDB(user_id, dbase)
 
-
+#Соединение с базой данных
 def connect_database():
     con = sqlite3.connect(main.config["DATABASE"])
     con.row_factory = sqlite3.Row
     return con
 
-
+#Вспомогательная функция для создания начальной БД
 def create_db():
     db = connect_database()
     with main.open_resource("database/sq_db.sql", mode = "r") as f:
@@ -56,14 +57,14 @@ def before_request():
     db = get_db()
     dbase = AddDataBase(db)
 
-
+#Функция соединения с БД, в случае, если оно не установлено
 def get_db():
     if not hasattr(g, "link_db"):
         g.link_db = connect_database()
     return g.link_db
 
-
-@main.teardown_request
+#Функция разрыва соединения с БД
+@main.teardown_appcontext
 def close_db(error):
     if hasattr(g, "link_db"):
         g.link_db.close()
