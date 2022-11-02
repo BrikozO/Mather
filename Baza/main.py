@@ -139,16 +139,19 @@ def figures():
 @login_required
 def sympanents():
     if request.method=="POST":
+        # получение информации о функции и операции
         fun = request.form["fun"]
         lim = request.form["lto"]
         symp = request.form["symp"]
         error = None
         if symp != "None":
+            # вывод ошибки, если поле предела не пустое и выбрана другая операция
             if any((symp == "Int", symp == "Dif")) and lim != "":
                 flash("Invalid input parameters")
                 return render_template("sympanents.html")
             else:
                 try:
+                    # попытка вычисления данной операции
                     fun = simplify(fun)
                     x = symbols('x')
                     if symp == "Int":
@@ -162,10 +165,12 @@ def sympanents():
                 else:
                     return render_template("sympanents.html", abc=ab)
                 if error is not None:
+                    # вывод ошибки при неверных данных
                     flash(error)
                     return render_template("sympanents.html")
         else:
-            flash("Sympanent are not set")
+            # вывод ошибки при отсутствии операции
+            flash("Sympanents are not set")
             return render_template("sympanents.html")
     else:
         return render_template("sympanents.html")
@@ -185,16 +190,19 @@ def matrix():
     if request.method == "POST":
         error = None
         try:
+            # попытка получить данные о количестве строк и рядов матрицы
             row = request.form["input_row"]
             column = request.form["input_column"]
             inp_operation = request.form["inp_operation"]
             if inp_operation!="start":
+                # создание и заполнение матрицы
                 empty_matrix = [[0 for i in range(int(column))] for j in range(int(row))]
                 for mr in range(int(row)):
                     for mc in range(int(column)):
                         matrix_string="matrix"+str(mr)+str(mc)
                         empty_matrix[mr][mc]=int(request.form[matrix_string])
                 fm=np.matrix(empty_matrix)
+                # выполнение выбранных операций
                 if inp_operation=="Select the operation!":
                     fm = np.squeeze(np.asarray(fm))
                     return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, fm=fm)
@@ -220,7 +228,9 @@ def matrix():
             error = "You can't use this matrix for this type of operation"
         if error is not None:
             flash(error)
+            # возвращение ошибки при неверных введенных данных
             return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation, err=error)
+        # первый вывод матрицы в случае успеха
         return render_template("matrix.html", row=range(int(row)),column=range(int(column)),inp_operation=inp_operation)
     else:
         return render_template("matrix.html")
