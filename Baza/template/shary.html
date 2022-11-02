@@ -27,6 +27,7 @@
 
     
         class Balls():
+            #класс для определения всех параметров шаров, их отрисовки и анимирования
 
             def __init__(self, ctx):
                 self.ctx = ctx
@@ -45,7 +46,10 @@
                 self.y = []
 
             def addBall(self, x, y):
+                #функция для добавления шаров 
                 k = self.ballcount
+                
+                #елси количество шаров больше ограничения. то удаляем первый шар
                 if k == ballcount:
                     self.t = self.t[1:]
                     self.v0 = self.v0[1:]
@@ -59,6 +63,7 @@
                     self.x = self.x[1:]
                     self.y = self.y[1:]
                     k = ballcount - 1
+                
                 self.t.append(0)
                 self.v0.append(randint(50, 150))
                 self.angle.append(randint(1, 10))
@@ -73,6 +78,7 @@
                 self.ballcount = min(ballcount, self.ballcount + 1)
 
             def drawBalls(self):
+                #функция для отрисовки шаров
                 for i in range(self.ballcount):
                     ctx = self.ctx 
                     ctx.beginPath()
@@ -84,7 +90,9 @@
                     self.changecoords()
 
             def updateBalls(self):
+                #функция для изменения векторв скоростей шаров
                 for i in range(self.ballcount):
+                    #если шар столкнулся со стенкой
                     if (self.x[i] > canvas.width-ballRadius):
                         self.vx[i] = -self.vx[i] * 0.8
                         self.t[i] = 0
@@ -92,6 +100,7 @@
                         self.y0[i] = self.y[i]
                         self.v0y[i] = self.vy[i]
 
+                    #если шар столкнулся со стенкой
                     if (self.x[i] < ballRadius):
                         self.vx[i] = -self.vx[i] * 0.8
                         self.t[i] = 0
@@ -99,6 +108,7 @@
                         self.y0[i] = self.y[i]
                         self.v0y[i] = self.vy[i]
     
+                    #если шар столкнулся со стенкой
                     if (self.y[i] > canvas.height - ballRadius):
                         self.vy[i] = -self.vy[i] * 0.8
                         self.t[i] = 0
@@ -106,6 +116,7 @@
                         self.y0[i] = canvas.height - ballRadius
                         self.v0y[i] = self.vy[i]
 
+                    #если шар столкнулся со стенкой
                     if (self.y[i] < ballRadius):
                         self.vy[i] = -self.vy[i] * 0.8
                         self.t[i] = 0
@@ -113,9 +124,11 @@
                         self.y0[i] = ballRadius
                         self.v0y[i] = self.vy[i]
 
+                    #если шар столкнулся с другим шаром
                     for j in range(i+1, self.ballcount):
                         dx = self.x[i] - self.x[j]
                         dy = self.y[i] - self.y[j]
+                        #определяем столкновение, если расстояние между центрами шаров меньше двух радиусов
                         if sqrt(dx ** 2 + dy ** 2) < 2 * ballRadius:
                             v1x = self.vx[i]
                             v1y = self.vy[i]
@@ -136,6 +149,7 @@
                             self.t[j] = 0
 
             def changecoords(self):
+                #функция для изменения координат шаров
                 for i in range(self.ballcount):    
                     self.t[i] += 0.1 / self.ballcount
                     self.vy[i] -= self.g * 0.1 / self.ballcount
@@ -145,6 +159,7 @@
                     self.y[i] = self.y0[i] + self.v0y[i] * self.t[i] - self.g * self.t[i] * self.t[i] / 2
 
             def draw(self, *args):
+                #функция для отрисовки и анимирования всех шаров
                 self.ctx.clearRect(0, 0, canvas.width, canvas.height)
                 self.drawBalls()
                 window.requestAnimationFrame(self.draw)
@@ -153,9 +168,12 @@
         canvas = document["myCanvas"]
         ctx = canvas.getContext("2d")
         balls = Balls(ctx)
+
+        #если произведен клик, то добавим шар по координатам клика
         @bind(document, "click")
         def clickHandler(e):
             balls.addBall(e.clientX, canvas.height - e.clientY)
+
         balls.draw()
 
     </script>
