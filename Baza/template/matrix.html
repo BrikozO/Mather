@@ -5,7 +5,7 @@
 {% block workspace %}
 <section class="workspace">
     <div class="input-window-matrix">
-        <div class="infsymp">
+        <div class="infsymp">                                                                                           <!-- Создание окна, содержащего общую информацию о вкладке -->
 
             <h2 class="inf-text"> Information</h2>
             <p class="text">Here you can enter the size of the matrix,<br>
@@ -14,12 +14,12 @@
             </p>
 
         </div>
-        <div class="matrix-operation-wid">
-            {% if request.method != "POST" %}
+        <div class="matrix-operation-wid">                                                                              <!-- Создание окна выбора размера матрицы и операции над матрицей -->
+            {% if request.method != "POST" %}                                                                           <!-- Данное условия позволяет разделить формы, т.е. будет отображаться только одна из двух в зависимости от метода -->
             <p id="matrix-size-text">Select the size of Matrix:</p>
             <form class="matrix-x" method="POST">
                 <input name="inp_operation" hidden="true" value="start">
-                <select class="matrix-size" name="input_row" id="input-size-line">
+                <select class="matrix-size" name="input_row" id="input-size-line">                                      <!-- Выбор количества строк -->
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
@@ -27,7 +27,7 @@
                     <option>6</option>
                     <option>7</option>
                 </select>
-                <select class="matrix-size" name="input_column" id="input-size-column">
+                <select class="matrix-size" name="input_column" id="input-size-column">                                 <!-- Выбор количества столбцов -->
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
@@ -44,7 +44,7 @@
                 <input type="hidden" name="input_row" value={{row[-1]+1}}>
                 <input type="hidden" name="input_column" value={{column[-1]+1}}>
                 <p id="matrix-operation-text">Here are a few operations that u can use to transform ur matrix!</p>
-                <select class="matrix-operations" name="inp_operation">
+                <select class="matrix-operations" name="inp_operation">                                                 <!-- Выбор операции над введённой матрицей -->
                     <option>Select the operation!</option>
                     <option>Find determinant</option>
                     <option>Transpose</option>

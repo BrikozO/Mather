@@ -6,12 +6,12 @@
             <style>body {background-color:#ffffff}</style>
         </head>
 
-        <body onload="brython()">
+        <body onload="brython()">                                                                                       <!-- Подгружается модуль brython -->
             <div class="calculator">
                 <script type="text/python">
                     from browser import document, html
-                    calc = html.TABLE(id="table-calc")
-                    calc <= html.TR(html.TH(html.DIV("0", id="result"), colspan=4))
+                    calc = html.TABLE(id="table-calc")                                                                  # В объект calc помещается пустая html таблица
+                    calc <= html.TR(html.TH(html.DIV("0", id="result"), colspan=4))                                     # С помощью оператора '<=' объекту calc "присваивается" строка, содержащая из ячеек таблицы
                     calc <= html.TR(html.TD('C', id="clear") + html.TD('CE', id="clear") + html.TD('^', id="operation") + html.TD('/', id="operation"))
                     calc <= html.TR(html.TD('1', id="number") + html.TD('2', id="number") + html.TD('3', id="number") + html.TD('*', id="operation"))
                     calc <= html.TR(html.TD('4', id="number") + html.TD('5', id="number") + html.TD('6', id="number") + html.TD('-', id="operation"))
@@ -20,11 +20,11 @@
                     document <= calc
                     result = document["result"]
 
-                    def action(event):
-                        element = event.target
-                        value = element.text
-                        if value in '1234567890.+-**^/':
-                            if result.text in ["0", "Error", "Infinity"] and (value not in '+-*/^'):
+                    def action(event):                                                                                  # Описание функции действия калькулятора
+                        element = event.target                                                                          # С помощью определения объекта element, в объект value сохраняется
+                        value = element.text                                                                            # определённый элемент из таблицы, описанной выше, имеющий тип str
+                        if value in '1234567890.+-**^/':                                                                # Реализация исходов различных действий с помощью постановки условий
+                            if result.text in ["0", "Error"] and (value not in '+-*/^'):
                                 result.text = value
                             elif (result.text[-1] in '+-**/') and (value in '+-**/'):
                                 if result.text[-2:] == '**':
@@ -43,7 +43,7 @@
                             except:
                                 result.text = "Error"
                         elif value == "C":
-                            if (len(result.text) > 1) and (result.text != 'Error') and (result.text != 'Infinity'):
+                            if (len(result.text) > 1) and (result.text != 'Error'):
                                 result.text = result.text[:-1]
                             else:
                                 result.text = 0
@@ -54,8 +54,8 @@
                                 result.text = int(1/(eval(result.text)))
                             else:
                                 result.text = 1/(eval(result.text))
-                    for button in document.select("td"):
-                        button.bind("click", action)
+                    for button in document.select("td"):                                                                # Кликнув на ячейку таблицы вызывается функция, описанная
+                        button.bind("click", action)                                                                    # ранее и в переменную element сохраняется значение нажатой кнопки
                 </script>
             </div>
         </body>
