@@ -1,6 +1,6 @@
 from flask_login import UserMixin
 
-
+#Получение пользователя из базы данных
 class UserLogin(UserMixin):
     def fromDB(self, user_id, db):
         self.__user = db.GetUser(user_id)
